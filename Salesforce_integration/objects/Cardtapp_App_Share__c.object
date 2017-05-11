@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Member_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Email</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Member_Vertical_Code__c</fullName>
+        <defaultValue>&apos;ct&apos;</defaultValue>
+        <externalId>false</externalId>
+        <label>Member Vertical Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Salesforce_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Salesforce Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Cardtapp App Shares</relationshipLabel>
+        <relationshipName>Cardtapp_App_Shares</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Salesforce_Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Salesforce Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipLabel>Cardtapp App Shares</relationshipLabel>
+        <relationshipName>Cardtapp_App_Shares</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Salesforce_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Salesforce User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Cardtapp_App_Shares</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Tapper_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Tapper Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tapper_First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Tapper First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tapper_Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Tapper Last Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tapper_Mobile_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Tapper Mobile Phone</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <label>Cardtapp App Share</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CAS-{00000}</displayFormat>
+        <label>Unique ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Cardtapp App Shares</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Member_Email__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tapper_First_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tapper_Last_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tapper_Mobile_Phone__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tapper_Email__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Member_Email__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tapper_First_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tapper_Last_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tapper_Mobile_Phone__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Tapper_Email__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Member_Email__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Tapper_First_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Tapper_Last_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Tapper_Mobile_Phone__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Tapper_Email__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Cardtapp_External_Ids__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Separate multiple External ID tokens with commas</inlineHelpText>
+        <label>Cardtapp External Ids</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
