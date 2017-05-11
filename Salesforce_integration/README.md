@@ -5,6 +5,8 @@ v1.0
 
 See package.xml for contents
 
+Installation link:  https://test.salesforce.com/packaging/installPackage.apexp?p0=04tJ00000006U44
+
 Release notes:
 
 
