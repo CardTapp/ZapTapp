@@ -1,4 +1,10 @@
 # ZapTapp Salesforce_integration
+
+<a href="https://githubsfdeploy.herokuapp.com">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
 Salesforce resources for integration with Cardtapp via Zapier
 v1.0
 2017-05-10
