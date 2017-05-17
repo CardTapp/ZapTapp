@@ -1,0 +1,18 @@
+A new Tapper record in Salesforce has been created based on a share of a Cardtapp app.
+
+However, it could not be associated to an existing Lead or Contact because of duplicate or ambiguous entries.
+
+Please view the Tapper record and manually associate it to a Lead or Contact here:
+https://login.salesforce.com/{!Cardtapp_Tapper__c.Id}
+
+Thank you!
+
+------------------------------------
+Tapper Name: {!Cardtapp_Tapper__c.Tapper_Name__c}
+Tapper Phone: {!Cardtapp_Tapper__c.Tapper_phone_number__c}
+Tapper Email: {!Cardtapp_Tapper__c.Tapper_email__c}
+
+Referrer Name: {!Cardtapp_Tapper__c.Referrer_name__c}
+ 
+App owner email: {!Cardtapp_Tapper__c.Member_email__c}
+Salesforce User: {!Cardtapp_Tapper__c.Salesforce_User__c}

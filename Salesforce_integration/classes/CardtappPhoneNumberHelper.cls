@@ -1,4 +1,4 @@
-public with sharing class PhoneNumberHelper {
+public with sharing class CardtappPhoneNumberHelper {
     
     public static String getFormatted10digitPhoneNumber(String input) {
     	

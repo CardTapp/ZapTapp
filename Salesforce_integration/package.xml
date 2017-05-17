@@ -2,19 +2,21 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Cardtapp SF integration resources</fullName>
     <types>
-        <members>AttachCardtappTapper</members>
-        <members>AttachCardtappTapperHelper</members>
-        <members>AttachCardtappTapperHelperTest</members>
-        <members>AttachCardtappTapperTest</members>
-        <members>AttachCardtappTapperToUserAndLeadTTest</members>
-        <members>DataFactoryUser</members>
-        <members>DataFactoryUserTest</members>
-        <members>PhoneNumberHelper</members>
-        <members>PhoneNumberHelperTest</members>
+        <members>CardtappAttachTapper</members>
+        <members>CardtappAttachTapperHelper</members>
+        <members>CardtappAttachTapperHelperTest</members>
+        <members>CardtappAttachTapperTest</members>
+        <members>CardtappDataFactoryUser</members>
+        <members>CardtappDataFactoryUserTest</members>
+        <members>CardtappPhoneNumberHelper</members>
+        <members>CardtappPhoneNumberHelperTest</members>
+        <members>CardtappProcessTapperOnInsertTriggerTest</members>
+        <members>CardtappQueryHelper</members>
+        <members>CardtappQueryHelperTest</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>AttachCardtappTapperToUserAndLead</members>
+        <members>CardtappProcessTapperOnInsert</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -50,9 +52,16 @@
         <members>Cardtapp_Tapper__c.Member_subdomain__c</members>
         <members>Cardtapp_Tapper__c.Member_vertical_code__c</members>
         <members>Cardtapp_Tapper__c.Member_vertical_name__c</members>
+        <members>Cardtapp_Tapper__c.Notify_Ambiguous_lead_contact_found__c</members>
+        <members>Cardtapp_Tapper__c.Notify_Existing_Contact_found__c</members>
+        <members>Cardtapp_Tapper__c.Notify_existing_lead_found__c</members>
+        <members>Cardtapp_Tapper__c.Notify_new_contact_created__c</members>
+        <members>Cardtapp_Tapper__c.Notify_new_lead_created__c</members>
         <members>Cardtapp_Tapper__c.Referrer_name__c</members>
         <members>Cardtapp_Tapper__c.Referrer_status__c</members>
+        <members>Cardtapp_Tapper__c.Salesforce_Contact_URL__c</members>
         <members>Cardtapp_Tapper__c.Salesforce_Contact__c</members>
+        <members>Cardtapp_Tapper__c.Salesforce_Lead_URL__c</members>
         <members>Cardtapp_Tapper__c.Salesforce_Lead__c</members>
         <members>Cardtapp_Tapper__c.Salesforce_User__c</members>
         <members>Cardtapp_Tapper__c.Suppress_triggers__c</members>
@@ -63,8 +72,10 @@
         <members>Cardtapp_Tapper__c.Tapper_Status__c</members>
         <members>Cardtapp_Tapper__c.Tapper_email__c</members>
         <members>Cardtapp_Tapper__c.Tapper_phone_number__c</members>
+        <members>Cardtapp_Tapper__c.Workflow_action__c</members>
         <members>Cardtapp_Tapper__c.of_Cardtapp_App_Events__c</members>
         <members>User.Cardtapp_External_Ids__c</members>
+        <members>User.Cardtapp_Notifications__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -86,6 +97,15 @@
         <name>Document</name>
     </types>
     <types>
+        <members>Cardtapp_Email_Templates</members>
+        <members>Cardtapp_Email_Templates/Cardtapp_Ambiguous_lead_contact_found</members>
+        <members>Cardtapp_Email_Templates/Cardtapp_Existing_Contact_found</members>
+        <members>Cardtapp_Email_Templates/Cardtapp_Existing_Lead_found</members>
+        <members>Cardtapp_Email_Templates/Cardtapp_New_Contact_created</members>
+        <members>Cardtapp_Email_Templates/Cardtapp_New_Lead_createdCardtapp_New_Contact_created</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
         <members>Cardtapp_App_Event__c-Cardtapp App Event Layout</members>
         <members>Cardtapp_App_Share__c-Cardtapp App Share Layout</members>
         <members>Cardtapp_Tapper__c-Cardtapp Tapper Layout</members>
@@ -96,6 +116,22 @@
         <members>Cardtapp_App_Share__c.All</members>
         <members>Cardtapp_Tapper__c.All</members>
         <name>ListView</name>
+    </types>
+    <types>
+        <members>Cardtapp_Tapper__c.Cardtapp_Existing_Contact_found</members>
+        <members>Cardtapp_Tapper__c.Cardtapp_Existing_Lead_found</members>
+        <members>Cardtapp_Tapper__c.Cardtapp_New_Lead_created</members>
+        <members>Cardtapp_Tapper__c.Email_User_that_Cardtapp_Tapper_has_been_created_in_SF</members>
+        <members>Cardtapp_Tapper__c.Email_User_that_Cardtapp_Tapper_has_been_created_in_SF_not_attached</members>
+        <name>WorkflowAlert</name>
+    </types>
+    <types>
+        <members>Cardtapp_Tapper__c.Cardtapp - Ambiguous lead%2Fcontact found</members>
+        <members>Cardtapp_Tapper__c.Cardtapp - Existing Contact found</members>
+        <members>Cardtapp_Tapper__c.Cardtapp - Existing Lead found</members>
+        <members>Cardtapp_Tapper__c.Cardtapp - New Contact created</members>
+        <members>Cardtapp_Tapper__c.Cardtapp - New Lead created</members>
+        <name>WorkflowRule</name>
     </types>
     <version>39.0</version>
 </Package>

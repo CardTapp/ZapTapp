@@ -1,0 +1,14 @@
+A new Lead has been created based on a share from a Cardtapp App:
+
+Tapper Name: {!Cardtapp_Tapper__c.Tapper_Name__c}
+Tapper Phone: {!Cardtapp_Tapper__c.Tapper_phone_number__c}
+Tapper Email: {!Cardtapp_Tapper__c.Tapper_email__c}
+
+Referrer Name: {!Cardtapp_Tapper__c.Referrer_name__c}
+
+SF Lead: 
+{!Cardtapp_Tapper__c.Salesforce_Lead__c}  
+{!Cardtapp_Tapper__c.Salesforce_Lead_URL__c}
+ 
+App owner email: {!Cardtapp_Tapper__c.Member_email__c}
+Salesforce User: {!Cardtapp_Tapper__c.Salesforce_User__c}

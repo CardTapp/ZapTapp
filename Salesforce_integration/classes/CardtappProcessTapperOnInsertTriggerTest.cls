@@ -1,9 +1,9 @@
 @isTest
-private class AttachCardtappTapperToUserAndLeadTTest {
+private class CardtappProcessTapperOnInsertTriggerTest {
 
     static testMethod void myUnitTest() {
         
-        User u = DataFactoryUser.insertStandardUser();
+        User u = CardtappDataFactoryUser.insertStandardUser();
         u.Cardtapp_External_Ids__c = 'abcd,0123456789-0123456789-01234567890-56,qrst';
         update u;
         System.debug(u);

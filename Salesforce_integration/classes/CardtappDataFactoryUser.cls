@@ -1,4 +1,4 @@
-public class DataFactoryUser {
+public with sharing class CardtappDataFactoryUser {
 	
     // This method dynamically creates a username prefix that will make ensure username uniqueness.
     public static String getUserNamePrefix(){

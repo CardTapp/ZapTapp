@@ -11,4 +11,46 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Cardtapp_Notifications__c</fullName>
+        <description>Choose which email notifications this user should receive</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose which email notifications this user should receive</inlineHelpText>
+        <label>Cardtapp Notifications</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ambiguous lead/contact found</fullName>
+                    <default>false</default>
+                    <label>Ambiguous lead/contact found</label>
+                </value>
+                <value>
+                    <fullName>Existing Contact found</fullName>
+                    <default>false</default>
+                    <label>Existing Contact found</label>
+                </value>
+                <value>
+                    <fullName>Existing Lead found</fullName>
+                    <default>false</default>
+                    <label>Existing Lead found</label>
+                </value>
+                <value>
+                    <fullName>New Contact created</fullName>
+                    <default>false</default>
+                    <label>New Contact created</label>
+                </value>
+                <value>
+                    <fullName>New Lead created</fullName>
+                    <default>false</default>
+                    <label>New Lead created</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>5</visibleLines>
+    </fields>
 </CustomObject>
