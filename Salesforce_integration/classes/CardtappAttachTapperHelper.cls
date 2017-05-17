@@ -91,7 +91,8 @@ public with sharing class CardtappAttachTapperHelper {
 		Contact c = new Contact (
 									AccountId = a.Id,
 									FirstName = t.Tapper_firstname__c,
-									LastName = t.Tapper_lastname__c,
+									// If no last name is provided, duplicate first name
+									LastName = (!IsNullOrEmptyString(t.Tapper_lastname__c)) ? t.Tapper_lastname__c : t.Tapper_firstname__c,
 									MobilePhone = t.Tapper_phone_number__c,
 									Email = t.Tapper_email__c,
 									LeadSource = leadSource,
@@ -112,7 +113,8 @@ public with sharing class CardtappAttachTapperHelper {
 		
 		Lead l = new Lead (
 									FirstName = t.Tapper_firstname__c,
-									LastName = t.Tapper_lastname__c,
+									// If no last name is provided, duplicate first name
+									LastName = (!IsNullOrEmptyString(t.Tapper_lastname__c)) ? t.Tapper_lastname__c : t.Tapper_firstname__c,
 									Company = company,
 									MobilePhone = t.Tapper_phone_number__c,
 									Email = t.Tapper_email__c,

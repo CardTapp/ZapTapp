@@ -27,8 +27,8 @@ private class CardtappAttachTapperHelperTest {
 				Member_External_ID__c = '0123456789-0123456789-01234567890-56',
 				Tapper_External_ID__c = '0123456789-0123456789-01234567890-56.abcdef',
 				Tapper_Firstname__c = 'Bob',
-				Tapper_Lastname__c = 'Smith',
-				Tapper_Name__c = 'Bob Smith',
+				Tapper_Lastname__c = '',
+				Tapper_Name__c = 'Bob',
 				Tapper_Email__c = 'bob@bob.com',
 				Tapper_Phone_Number__c = '(201) 345-6789',
 				Salesforce_User__c = u.Id
@@ -42,7 +42,7 @@ private class CardtappAttachTapperHelperTest {
         System.AssertEquals(testAccount.Id,c.AccountId);
         System.AssertEquals('(201) 345-6789',c.MobilePhone);
         System.AssertEquals('bob@bob.com',c.Email);
-        System.AssertEquals('Bob Smith',c.Name);
+        System.AssertEquals('Bob Bob',c.Name);
         System.AssertEquals(u.Id,c.OwnerId);
         System.AssertEquals(LEAD_SOURCE,c.LeadSource);
         
@@ -58,8 +58,8 @@ private class CardtappAttachTapperHelperTest {
 				Member_External_ID__c = '0123456789-0123456789-01234567890-56',
 				Tapper_External_ID__c = '0123456789-0123456789-01234567890-56.abcdef',
 				Tapper_Firstname__c = 'Bob',
-				Tapper_Lastname__c = 'Smith',
-				Tapper_Name__c = 'Bob Smith',
+				Tapper_Lastname__c = '',
+				Tapper_Name__c = 'Bob',
 				Tapper_Email__c = 'bob@bob.com',
 				Tapper_Phone_Number__c = '(201) 345-6789',
 				Salesforce_User__c = u.Id
@@ -72,7 +72,7 @@ private class CardtappAttachTapperHelperTest {
         
         System.AssertEquals('(201) 345-6789',l.MobilePhone);
         System.AssertEquals('bob@bob.com',l.Email);
-        System.AssertEquals('Bob Smith',l.Name);
+        System.AssertEquals('Bob Bob',l.Name);
         System.AssertEquals(u.Id,l.OwnerId);
         System.AssertEquals('Acme Co.',l.Company);
         System.AssertEquals(LEAD_SOURCE,l.LeadSource);

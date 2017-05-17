@@ -1,13 +1,13 @@
 # ZapTapp Salesforce_integration
 Salesforce resources for integration with Cardtapp via Zapier
 
-v1.12
+v1.13
 2017-05-16
 
 See package.xml for contents
 See help_docs folder for workflow diagrams
 
-Installation link:  https://test.salesforce.com/packaging/installPackage.apexp?p0=04tJ00000006U6y
+Installation link:  https://test.salesforce.com/packaging/installPackage.apexp?p0=04tJ00000006U73
 
 Release notes:
 - Standardized naming convention of all classes and assets for consistency to avoid potential naming conflicts
@@ -15,6 +15,7 @@ Release notes:
 - Added CardtappQueryBuilder class to support dynamic SOQL select statements
 - Added notification preferences at the User level and support for notification flagging at Tapper creation
 - Added workflow rules, email templates and email alerts for notification workflows
+- Fixes validation issue related to required LastName fields in newly created Lead and Contact records.
 
 
 
