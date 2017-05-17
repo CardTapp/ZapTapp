@@ -118,6 +118,51 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Notify_Ambiguous_lead_contact_found__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notify - Ambiguous lead/contact found</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notify_Existing_Contact_found__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notify - Existing Contact found</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notify_existing_lead_found__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notify - Existing Lead found</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notify_new_contact_created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notify - New Contact created</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notify_new_lead_created__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notify - New Lead created</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Referrer_name__c</fullName>
         <externalId>false</externalId>
         <label>Referrer name</label>
@@ -140,6 +185,22 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Salesforce_Contact_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (
+   LEFT( Salesforce_Contact__c ,3) = &apos;003&apos;,
+   &apos;https://login.salesforce.com/&apos; + Salesforce_Contact__c ,
+   &apos;&apos;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Salesforce Contact URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Salesforce_Contact__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -151,6 +212,22 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Salesforce_Lead_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (
+   LEFT( Salesforce_Lead__c ,3) = &apos;00Q&apos;,
+   &apos;https://login.salesforce.com/&apos; + Salesforce_Lead__c,
+   &apos;&apos;
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Salesforce Lead URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Salesforce_Lead__c</fullName>
@@ -263,6 +340,17 @@
         <type>Phone</type>
     </fields>
     <fields>
+        <fullName>Workflow_action__c</fullName>
+        <externalId>false</externalId>
+        <label>Workflow action</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>of_Cardtapp_App_Events__c</fullName>
         <externalId>false</externalId>
         <label># of Cardtapp App Events</label>
@@ -293,6 +381,7 @@
     </nameField>
     <pluralLabel>Cardtapp Tappers</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Tapper_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Tapper_phone_number__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Member_name__c</customTabListAdditionalFields>
@@ -301,6 +390,7 @@
         <lookupDialogsAdditionalFields>Tapper_phone_number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Member_name__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Member_email__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Tapper_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Tapper_phone_number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Member_name__c</searchResultsAdditionalFields>

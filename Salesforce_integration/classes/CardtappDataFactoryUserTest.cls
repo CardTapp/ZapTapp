@@ -1,13 +1,13 @@
 @isTest
-private class DataFactoryUserTest {
+private class CardtappDataFactoryUserTest {
 
     static testMethod void myUnitTest() {
         
-      User u = DataFactoryUser.insertStandardUser();
+      User u = CardtappDataFactoryUser.insertStandardUser();
       System.debug(u);
       System.AssertEquals('standarduser@testorg.com',u.email);
       
-      User a = DataFactoryUser.insertAdminUser();
+      User a = CardtappDataFactoryUser.insertAdminUser();
       System.debug(a);
       System.AssertEquals('adminuser@testorg.com',a.email);
   
