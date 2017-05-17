@@ -12,7 +12,7 @@ public with sharing class CardtappAttachTapper {
     		return t;
     	}
     	
-    	string search_token = '%' + t.Member_external_id__c + '%';
+    	string search_token = '%' + CardtappQueryHelper.MakeSafer(t.Member_external_id__c) + '%';
     	List<User> users = [SELECT Id, Cardtapp_notifications__c FROM User WHERE Cardtapp_External_Ids__c LIKE :search_token LIMIT 1];
     	    	
     	if (users.size() != 0) {
