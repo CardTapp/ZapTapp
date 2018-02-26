@@ -25,7 +25,7 @@ function get_lastname_parsed_descriptive(fullname) {
 
 function get_tapper_name_descriptive(fullname) {
     if (fullname === 'Not Provided') {
-        return 'NameNotProvided CreatedViaEasyText'
+        return 'NameNotProvided CreatedViaEasyText';
     } else {
         return fullname;
     }
@@ -33,7 +33,7 @@ function get_tapper_name_descriptive(fullname) {
 
 function get_referrer_name_descriptive(referrer_name,tapper_name) {
     if (isEmpty(referrer_name) && tapper_name === 'Not Provided') {
-        return 'EasyText SMS'
+        return 'EasyText SMS';
     } else {
         return referrer_name;
     }
@@ -70,14 +70,44 @@ function isEmpty(obj) {
   return true;
 }
 
+function isReferral(referrer_name,referrer_status,member_name) {
+  switch (referrer_name) {
+     case member_name:
+     case null: 
+     case "":
+     case "Sent from Dashboard":
+     case "Desktop Marketing Page":
+        return 0;
+  }
+  if (referrer_status === "This is me") {
+    return 0;
+  } else {
+    return 1;
+  }
+}
+
+function get_token_required(lastname) {
+  var a = (new Date()/1000*1000).toString();
+  var key = a.substr(a.length - 7); 
+
+  if (lastname === null || lastname === '') {
+    return 'NotProvided_' + key;
+  } else {
+    return lastname;
+  }
+}
+
 function augement_tapper_payload(json_input) {
     json_input.tapper_firstname_descriptive = get_firstname_parsed_descriptive(json_input.tapper_name);
     json_input.tapper_lastname_descriptive = get_lastname_parsed_descriptive(json_input.tapper_name);
+    json_input.tapper_firstname_required = get_token_required(get_firstname_parsed_descriptive(json_input.tapper_name));
+    json_input.tapper_lastname_required = get_token_required(get_lastname_parsed_descriptive(json_input.tapper_name));
     json_input.tapper_name_descriptive = get_tapper_name_descriptive(json_input.tapper_name);
     json_input.referrer_name_descriptive = get_referrer_name_descriptive(json_input.referrer_name,json_input.tapper_name);
     json_input.tapper_email_clean = get_tapper_email_clean(json_input.tapper_email);
     json_input.tapper_email_required_unique = get_tapper_email_required_unique(json_input.tapper_email,json_input.tapper_external_id);
     json_input.tapper_mobile_phone_formatted = get_mobile_phone_formatted(json_input.tapper_phone_number);
+    json_input.is_referral = isReferral(json_input.referrer_name,json_input.referrer_status,json_input.member_name);
     return json_input;
 }
 
