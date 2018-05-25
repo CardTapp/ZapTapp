@@ -1,0 +1,26 @@
+ZOHO CRM LIVE - Individual users
+https://zapier.com/app/editor/29107114/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Zoho indiv Zapier automation'
+    
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://crm.zoho.com/crm/private/xml/Contacts/insertRecords?authtoken= Step 1 Member Meta Data Crm Api Key &scope=crmapi&newFormat=1&xmlData=
+                <Contacts>
+                <row no="1">
+                <FL val="First Name"> Step 1 Tapper Firstname Descriptive </FL>
+                <FL val="Last Name"> Step 1 Tapper Lastname Descriptive </FL>
+                <FL val="Email"> Step 1 Tapper Email Clean </FL>
+                <FL val="Description">Cardtapp Referrer: Step 1 Referrer Name Descriptive </FL>
+                <FL val="Mobile"> Step 1 Tapper Mobile Phone Formatted </FL> 
+                <FL val="SMOWNERID"> Step 1 Member Meta Data Crm Owner ID </FL>
+                <FL val="Lead Source">Cardtapp</FL></row>
+                </Contacts>
+            ]
+            [Data Pass-Through? = no]
+            [Unflatten = no]
+            

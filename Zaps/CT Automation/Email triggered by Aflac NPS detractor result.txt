@@ -1,0 +1,36 @@
+Email triggered by Aflac NPS detractor result
+https://zapier.com/app/editor/36260529/overview
+
+    Trigger - Salesforce
+        Select Salesforce Trigger - New Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object 
+            [Custom Type = Customer Survey]
+            [Limit = 200]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing -
+            Rating | (Number) Less than | 7
+            Product (from Contac) | (Text) Exactly matches | Aflac 
+
+    Action - Gmail
+        Select Gmail Action - Send Email
+        Select Gmail Account - 'Pascal Gmail ppinck@cardtapp.com'
+        Set up Gmail Email
+            [To = brent@cardtapp.com,khoward@cardtapp.com]
+            [From = support@cardtapp.com]
+            [From Name = NPS automation]
+            [Subject = NPS score from Aflac member Step 1 Contact]                  
+            [Body Type = Plain]
+            [Body =
+            Member name: Step 1 Contact
+            Member Contact record: https://login.salesforce.com/Step 1 Contact C Raw
+            Survey record: https://login.salesforce.com/Step 1 Record ID
+
+            Rating: Step 1 Rating
+
+            Comment:
+            Step 1 Comment
+            ]
+            

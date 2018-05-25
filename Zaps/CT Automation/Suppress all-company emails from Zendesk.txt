@@ -1,0 +1,33 @@
+Suppress all-company emails from Zendesk
+https://zapier.com/app/editor/28236397/overview
+
+    Trigger - Gmail
+        Select Gmail Trigger - New Email Matching Search
+        Select Gmail Account - 'Pascal Gmail ppinck@cardtapp.com'
+        Set up Gmail Email Matching Search
+            [Search String = to:team@cardtapp.com]
+
+    Action - Delay by Zapier
+        Select Delay by Zapier Action - Delay For
+        Set up Delay by Zapier Time
+            [Time Delayed For (value) = 1]
+            [Time Delayed For (unit) = Minutes]
+
+    Search - Zendesk
+        Select Zendesk Action - Find a Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Search for Zendesk Ticket
+            [Query = subject:"Step 1 Subject" created>30minutes]        
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - Status | (Text) Does not exactly match | closed
+
+    Action - Zendesk
+        Select Zendesk Action - Update Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Ticket = Use a Custom Value (advanced)]
+            [Custom Value for Ticket ID = Step 3 ID]
+            [Should the first comment be public? = Yes]
+                

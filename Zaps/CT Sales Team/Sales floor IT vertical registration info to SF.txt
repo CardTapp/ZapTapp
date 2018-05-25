@@ -1,0 +1,30 @@
+Sales floor IT vertical registration info to SF
+https://zapier.com/app/editor/26743170/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapp Created
+        Select CardTapp Internal Account - 'Sales Team Zapier automation - IT'
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - Tapp Action | (Text) Exactly matches | registered
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF CardTapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = Cardtapp App Event]
+            [Member Email = Step 1 Member's Email]         
+            [Member External = Step 1 Member's External ID]
+            [Member Name = Step 1 Member's Name]
+            [Suppress Triggers = no]
+            [Tapp Action Data = Step 1 Tapp Action Data String]
+            [Tapp Action = Step 1 Tapp Action]
+            [Tapp Type = Step 1 Tapp Type]
+            [Tapper External ID = Step 1 Tapper External ID]
+            [Tapper FirstName = Step 1 Tapper Firstname Descriptive]
+            [Tapper LastName = Step 1 Tapper Lastname Descriptive]
+            [Tapper Name = Step 1 Tapper Name Descriptive]
+            [Tapper Email = Step 1 Tapper Email]
+            [Tapper Phone Number = Step 1 Tapper Mobile Phone Formatted]
+            

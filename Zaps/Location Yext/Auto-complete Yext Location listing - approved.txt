@@ -1,0 +1,42 @@
+Auto-complete Yext Location/listing - approved
+https://zapier.com/app/editor/36273666/overview
+
+    Trigger - SurveryGizmo
+        Select SurveryGizmo Trigger - New Survery Response 
+        Select SurveryGizmo Account - 'ppinck@cardtapp.com's SurveryGizmo'
+        Set up SurveryGizmo Survey Response 
+            [Survey = Auto-approve listing on click]
+            [Only Complete Response? = yes]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - Only continue if... 
+            id  | Exists    
+            cid | Exists
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task 
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Date Submitted]
+            [Description = Auto-approve link clicked]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = Location/listing approval form submitted]
+            [Related To = Use a Custom Value (advanced)]
+            [Custom Value for Related To ID = Step 1 ID]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 1 cid]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Location]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 1 ID]
+            [Action to take = Set to (12) Yext Data Approved By Customer]
+            [Yext program status = (12) Yext Data Approved By Customer]
+            
+

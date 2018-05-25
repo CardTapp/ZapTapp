@@ -1,0 +1,95 @@
+Stripe charge succeeded / updated / refunded
+https://zapier.com/app/editor/25953173/overview
+
+    Trigger - Webhooks by Zapier
+        Select Webhooks by Zapier Trigger - Catch Hook
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/rshfs0/
+        Set up Webhooks by Zapier Hook 
+            [Pick off a Child Key = Blank]
+    
+    Search or Create - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object
+            [Custom Object Type = Stripe Charge]
+            [Field to Search By = stripe_charge_id]
+            [Search Value = Step 1 Data Object ID]
+            **Check box** Create Salesforce Custom Object if it doesn't exist yet? - ✓
+                [Stripe_charge_id = Step 1 Data Object ID]
+                [Amount = Step 1 Data Object Amount]
+                [Amount_refunded = Step 1 Data Object Amount Refunded]
+                [Application = Step 1 Data Object Application]
+                [Balance_transaction = Step 1 Data Object Balance Transaction]
+                [Captured = Use a Custom Value (advanced)]
+                [Custom Value for captured = Step 1 Data Object Captured]
+                [Created = Step 1 Data Object Created]
+                [Currency = Step 1 Data Object Currency]
+                [Customer = Step 1 Data Object Customer]
+                [Description = Step 1 Data Object Description]
+                [Dispute = Step 1 Data Object Dispute]
+                [Event_type = Step 1 Type]
+                [Failure_code = Step 1 Data Object Failure Code]
+                [Failure_message = Step 1 Data Object Failure Message]
+                [Invoice = Step 1 Data Object Invoice]
+                [Livemode = Use a Custom Value (advanced)]
+                [Custom Value for livemode = Step 1 Data Object Livemode]
+                [Object = Step 1 Data Object Object]    
+                [Paid = Use a Custom Value (advanced)]
+                [Custom Value for paid = Step 1 Data Object Paid]
+                [Refunded = Use a Custom Value (advanced)]
+                [Custom Value for Refunded = Step 1 Data Object Refunded]
+                [Refunds_has_more = Use a Custom Value (advanced)]
+                [Refunds_object = Step 1 Data Object Refunds Object]
+                [Refunds_total_count = Step 1 Data Object Refunds Total Count]
+                [Refunds_url = Step 1 Data Object Refunds URL]
+                [Review = Step 1 Data Object Review]
+                [Source_brand = Step 1 Data Object Source Brand]
+                [Source_fingerprint = Step 1 Data Object Source Fingerprint]
+                [Source_funding = Step 1 Data Object Source Funding]
+                [Source_id = Step 1 Data Object Source ID]
+                [Source_last4 Step 1 Data Object Source Last4]
+                [Status = Step 1 Data Object Status]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Stripe Charge]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 2 ID]
+            [Amount = Step 1 Data Object Amount]
+            [Amount_refunded = Step 1 Data Object Amount Refunded]
+            [Application = Step 1 Data Object Application]
+            [Balance_transaction = Step 1 Data Object Balance Transaction]
+            [Captured = Use a Custom Value (advanced)]
+            [Custom Value for Captured = Step 1 Data Object Captured] 
+            [Created = Step 1 Data Object Created]
+            [Currency = Step 1 Data Object Currency]
+            [Customer = Step 1 Data Object Customer]
+            [Description = Step 1 Data Object Description]
+            [Dispute = Step 1 Data Object Dispute]
+            [Event_type = Step 1 Type]
+            [Failure_code = Step 1 Data Object Failure Code]
+            [Failure_message = Step 1 Data Object Failure Message]
+            [Stripe_charge_id = Step 1 Data Object ID]
+            [Invoice = Step 1 Data Object Invoice]
+            [Livemode = Use a Custom Value (advanced)]
+            [Custom Value for Livemode = Step 1 Data Object Livemode]
+            [Object = Step 1 Data Object Object]
+            [Paid = Use a Custom Value (advanced)]
+            [Custom Value for Paid = Step 1 Data Object Paid]
+            [Refunded = Use a Custom Value (advanced)]
+            [Custom Value for Refunded = Step 1 Data Object Refunded]
+            [Refunds_has_more = Use a Custom Value (advanced)]
+            [Custom Value for refunds_has_more = Step 1 Data Object Refunds Has More]
+            [Refunds_object = Step 1 Data Object Refunds Object] 
+            [Refunds_total_count = Step 1 Data Object Refunds Total Count]
+            [Refunds_url = Step 1 Data Object Refunds Total Count]
+            [Review = Step 1 Data Object Review]
+            [Source_brand = Step 1 Data Object Source Brand]
+            [Source_fingerprint = Step 1 Data Object Source Fingerprint]
+            [Source_funding = Step 1 Data Object Source Funding]
+            [Source_id = Step 1 Data Object Source ID]
+            [Source_last4 - Step 1 Data Object Source Last4]
+            [Status = Step 1 Data Object Status]
+                     

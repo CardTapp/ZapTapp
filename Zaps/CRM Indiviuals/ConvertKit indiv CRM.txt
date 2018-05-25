@@ -1,0 +1,41 @@
+ConvertKit indiv CRM
+https://zapier.com/app/editor/37091973/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'ConvertKit CRM indiv users'        
+
+    Action - Delay by Zapier
+        Select Delay by Zapier Action - Delay For
+        Set up Delay by Zapier Time
+            [Time Delayed For (value) = 3]
+            [Time Delayed For (unit) = Minutes]
+
+    Search - Cardtapp
+        Select Cardtapp Internal Action - Find Tapper
+        Select Cardtapp Internal Account - 'ConvertKit CRM indiv users'      
+        Search for Cardtapp Internal Tapper
+            [Tapper External ID = Step 1 Tapper External ID]
+
+    Filter - Filter by Zapier
+        Select Filter by Zapier - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Tapper Email | Exists 
+                Tapper Email | (Text) Contains | @
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request 
+            [Method = POST]
+            [URL = https://api.convertkit.com/v3/forms/ Step 1 Member Meta Data Crm Form ID /subscribe?api_key= Step 1 Member Meta Data Crm Api Key]
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                    "email":"Step 3 Tapper Email",
+                    "first_name":"Step 3 Tapper First Name"
+                }
+            ]    
+            [Unflatten = no]
+            [Headers = Content-Type | application/json]
+                          

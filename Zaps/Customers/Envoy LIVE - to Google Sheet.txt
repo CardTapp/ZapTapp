@@ -1,0 +1,27 @@
+Envoy LIVE - to Google Sheet
+https://zapier.com/app/editor/29661230/overview
+
+    Trigger - CardTapp
+        Tapper Created
+        Select CardTapp Internal Account - 'Envoy'
+
+    Action - Google Sheets
+        Select Google Sheet Action - Create Spreadsheet Row
+        Select Google Sheet Account - Pascal Google Sheets
+        Set up Google Sheets Spreadsheetrow
+            [Spreadsheet = MortgageMapp Events Data]
+            [Worksheet = Sheet1]
+            [member_name = Step 1 Member Name]
+            [member_firstname = Step 1 Member First Name]
+            [member_lastname = Step 1 Member Last Name ]
+            [member_email = Step 1 Member Email ]
+            [member_external_id = Step 1 Member External ID]
+            [tapper_name = Step 1 Tapper Name Descriptive]
+            [tapper_firstname = Step 1 Tapper Firstname Descriptive ]
+            [tapper_lastname = Tapper Lastname Descriptive ]
+            [tapper_mobile_phone = Step 1 Tapper Mobile Phone Formatted ]
+            [tapper_email = Step 1 Tapper Email Clean ]
+            [tapper_external_id = Step 1 Tapper External ID ]
+            [referrer_name = Step 1 Referrer Name Descriptive ]
+            [event_datetime = Step 1 Zap Meta Human Now]
+

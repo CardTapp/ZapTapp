@@ -1,0 +1,71 @@
+Agile CRM individual users
+https://zapier.com/app/editor/26447172/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'AgileCRM Zapier indiv users'
+    
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://Step 1 Member Meta Data Crm Organization ID.agilecrm.com/dev/api/contacts]
+            [Data Pass-Through? = no]
+            [Data = 
+                {	"tags":["Cardtapp"],
+                    "properties": [
+                        {
+                            "type": "SYSTEM",
+                            "name": "first_name",
+                            "value": "Step 1 Tapper Firstname Descriptive"
+                        },
+                        {
+                            "type": "SYSTEM",
+                            "name": "last_name",
+                            "value": "Step 1 Tapper Lastname Descriptive"
+                        },        
+                        {
+                            "name": "phone",
+                            "type": "SYSTEM",
+                            "subtype": "mobile",
+                            "value": "Step 1 Tapper Mobile Phone Formatted"
+                        }
+                    ]
+                }
+            ]
+            [Unflatten = no]
+            [Basic Auth = Step 1 Member Meta Data Crm Api Username | Step 1 Member Meta Data Crm Api Key]
+            [Headers = Content-Type | application/json]
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - POST
+        Set up Webhooks by POST
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .agilecrm.com/dev/api/contacts/change-owner]
+            [Payload Type = Form]
+            [Data = 
+                owner_email | Step 1 Member Meta Data Crm Owner ID
+                contact_id | Step 2 ID
+            ]  
+            [Wrap Request In Array = no]
+            [Unflatten = no]
+            [Basic Auth = Step 1 Member Meta Data Crm Api Username | Step 1 Member Meta Data Crm Api Key]
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request     
+            [Method = POST]
+            [URL = https://Step 1 Member Meta Data Crm Organization ID.agilecrm.com/dev/api/notes]
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                    "subject": " Cardtapp app share info",
+                    "description": "App owner: Step 1 Member Name ; App shared by: Step 1 Referrer Name ",
+                    "contact_ids": [
+                        "Step 2 ID"
+                    ]
+                }
+            ]
+            [Unflatted = no]
+            [Basic Auth = Step 1 Member Meta Data Crm Api Username | Step 1 Member Meta Data Crm Api Key]
+            [Headers = Content-type | application/json]
+            

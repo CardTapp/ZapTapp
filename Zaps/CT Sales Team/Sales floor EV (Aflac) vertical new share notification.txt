@@ -1,0 +1,41 @@
+Sales floor EV (Aflac) vertical new share notification
+https://zapier.com/app/editor/22251172/overview
+
+    Trigger - CardTapp 
+        Select CardTapp Internal Trigger - Tapper Created
+        Select CardTapp Internal Account - 'Sales Team Zapier automation - EV'
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF CardTapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = CardTapp Tapper]
+            [Tapper External ID = Step 1 Tapper External ID]
+            [Member Email = Step 1 Member Email]
+            [Member External = Step 1 Member External ID]
+            [Member Name = Step 1 Member Name]
+            [Member Subdomain = Step 1 Member Subdomain]
+            [Member Vertical Code = Step 1 Member Vertical Code]
+            [Member Vertical Name = Step 1 Member Vertical]
+            [Referrer Name = Step 1 Referrer Name]
+            [Referrer Status = Step 1 Referrer Status]
+            [Tapper FirstName = Step 1 Tapper Firstname Descriptive]
+            [Tapper LastName = Step 1 Tapper Lastname Descriptive]
+            [Tapper Name = Step 1 Tapper Name Descriptive]
+            [Tapper = Tapper Status]
+            [Tapper Email = Step 1 Tapper Email Clean]
+            [Tapper Phone Number = Step 1 Tapper Phone Number]
+
+    Action - Slack
+        Select Slack(Legacy) Action - Send Channel Message
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack(Legacy)'
+        Set up Slack(Legacy) Channel Message
+            [Channel = sales-team-app-shares]
+            [Message Text = New tapper Step 1 Tapper Name created on app with subdomain Step 1 Member Subdomain on vertical Step 1 Member Vertical
+            <https://login.salesforce.com/Step 2 ID |Tapper>]        
+            [Send as a Bot? = yes]
+            [Bot Icon Emoji = :tapp_finger_blue:]
+            [Broadcast to Channel? = no]       
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+            

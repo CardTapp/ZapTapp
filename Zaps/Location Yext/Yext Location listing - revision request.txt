@@ -1,0 +1,98 @@
+Yext Location/listing - revision request
+https://zapier.com/app/editor/34376977/overview
+
+    Trigger - SurveyGizmo
+        Select SurveyGizmo Trigger - New Survey Response
+        Select SurveyGizmo Account - 'ppinck@cardtapp.com's SurveyGizmo
+        Set up SurveyGizmo Survey Response
+            [Survey = Approve listing]
+            [Only Complete Responses? = no]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing -
+        I approve this listing for online publication | (Text) Does not exactly match | Yes
+        id | Exists
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task
+        Select Salesforce Account - 'SF CardTapp (production)'
+        Set up Salesforce Task
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Date Submitted]
+            [Description =
+            Listing name: Step 1 listing_name
+            Description: Step 1 description 
+            License info: Step 1 license_info
+            Address line 1: Step 1 address 
+            Address line 2: Step 1 address_line_2
+            City: Step 1 city 
+            State: Step 1 state 
+            Postal code: Step 1 postal_code
+            Business line?: Step 1 BL
+            Office number: Step 1 office_number
+            Respondent email: Step 1 Please provide your email address for follow-up questions
+            Feedback: Step 1 What should be changed before publication?
+            ]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = Location/listing approval feedback/edit request - see service request]
+            [Related To = Use a Custom Value (advanced)]
+            [Custom Value for Realted To ID = Step 1 id]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 1 cid]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = Service Request]
+            [Contact = Use a Custom Value (advanced)]
+            [Custom Value for Contact ID = Step 1 cid]
+            [Description = 
+            Location Record: https://login.salesforce.com/Step 1 id
+            Respondent email: Step 1 Please provide your email address for follow-up questions:
+            Feedback: Step 1 What should be changed before publication?
+            ]
+            [Request type = Revise Location/Listing Data]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Location]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 1 id]
+            [Yext program status = (10) Customer Requested Data Revision]        
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Yext location/listing revision request]
+            [Requester Name = Step 1 Please provide your email address for follow-up questions:]
+            [Requester Email = Step 1 Please provide your email address for follow-up questions:]
+            [First Comment/Description Format = Plain Text]
+            [First Comment/Description =
+            Contact record: https://login.salesforce.com/Step 1 cid
+            Location record: https://login.salesforce.com/Step 1 id
+            Respondent email: Step 1 Please provide your email address for follow-up questions:
+            Feedback: Step 1 What should be changed before publication?
+            Listing name: Step 1 listing_name
+            Description: Step 1 description 
+            License info: Step 1 license_info 
+            Address line 1: Step 1 address 
+            Address line 2: Step 1 address_line_2 
+            City: Step 1 city
+            State: Step 1 state 
+            Postal code: Step 1 postal_code
+            Business line?: Step 1 BL 
+            Office number: Step 1 office_number 
+            ]    
+            [Should the first comment be public? = No]
+            [Tags = no_csat_survey]
+            [Priority = Normal Priority]
+            [Classification = Individual]
+            [Ticket Source = Automation Sf]
+            [Request Type = Other Customer Request]
+            

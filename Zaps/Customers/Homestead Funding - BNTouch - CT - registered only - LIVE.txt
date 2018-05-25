@@ -1,0 +1,51 @@
+Homestead Funding - BNTouch - CT - registered only - LIVE
+https://zapier.com/app/editor/36377429/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapp Created
+        Select Cardtapp Internal Account - 'Homestead Funding CRM - CT'
+
+    Filter - Filter by Zapier 
+        Select Filter - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Tapp Action | (Text) Exactly matches | registered 
+                Tapp Class | (Text) Exactly matches | RegisteredTracking
+
+    Search - Cardtapp
+        Select Cardtapp Internal Action - Find Tapper
+        Select Cardtapp Internal Account - 'Homestead Funding CRM - CT'
+        Search for Cardtapp Internal Tapper
+            [Tapper External ID = Step 1 Tapper External ID]
+
+    Action - Webhooks by Zapier 
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request 
+            [Method = POST]
+            [URL = https://www.bntouchmortgage.net/account4/xmlpost/?schema=148&id=6d3a8d7a99190df82690358d2acfa271&user_name= Step 1 Member Meta Data Crm Owner ID]
+            [Data Pass-Through? = no]
+            [Data = 
+                <lead>
+                <member_name> Step 1 Member's Name </member_name>
+                <member_firstname> Step 1 Member's First Name </member_firstname>
+                <member_lastname> Step 1 Member's Last Name </member_lastname>
+                <member_email> Step 1 Members Email </member_email>
+                <tapper_name> Step 1 Tapper Name Descriptive </tapper_name>
+                <tapper_firstname> Step 1 Tapper Firstname Descriptive </tapper_firstname>
+                <tapper_lastname> Step 1 Tapper Lastname Descriptive </tapper_lastname>
+                <tapper_mobile_phone> Step 1 Tapper Mobile Phone Formatted </tapper_mobile_phone>
+                <tapper_email> Step 1 Tapper Email Clean </tapper_email>
+                <tapper_external_id> Step 1 Tapper External ID </tapper_external_id>
+                <referrer_name> Step 3 Referrer Name </referrer_name>
+                <referrer_email> Step 3 Referrer Email Clean </referrer_email>
+                <referrer_mobile_phone> Step 3 Referrer Mobile Phone </referrer_mobile_phone>
+                <cobrandee_name> Step 3 Cobrandee Name </cobrandee_name>
+                <cobrandee_email> Step 3 Cobrandee Email </cobrandee_email>
+                <cobrandee_mobile_phone> Step 3 Cobrandee Mobile Phone </cobrandee_mobile_phone>
+                <event_datetime> Step 1 Zap Meta Utc Iso </event_datetime>
+                <additional_source>Cardtapp</additional_source>
+                </lead>
+            ]         
+            [Unflatten = no]
+            [Headers = Content-Type | application/xml]
+            

@@ -1,0 +1,68 @@
+Stripe customer created / updated / deleted
+https://zapier.com/app/editor/25950319/overview
+
+    Trigger - Webhooks by Zapier
+        Select Webhooks by Zapier Trigger - Catch Hook
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/rs656w/
+        Set up Webhooks by Zapier Hook
+            [Pick off a Child Key = Blank]
+        
+    Search or Create - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object
+            [Custom Object Type = Stripe Customer]
+            [Field to Search By = stripe_customer_id]
+            [Search Value = Step 1 Data Object ID]
+            **Check box** Create Salesforce Custom Object if it doesn't exist yet? - ✓
+                [Stripe_customer_id = Step 1 Data Object ID]
+                [Account_balance = Step 1 Data Object Account Balance]
+                [Created = Step 1 Created]
+                [Currency = Step 1 Data Object Currency]
+                [Delinquent = Use a Custom Value (advanced)]
+                [Custom Value for delinquent = Step 1 Data Object Delinquent]
+                [Description = Step 1 Data Object Description]
+                [Discount_coupon_amount_off = Step 1 Data Object Coupon Amount Off]
+                [Discount_coupon_duration = Step 1 Data Object Coupon Duration] 
+                [Discount_coupon_duration_in_months = Step 1 Data Object Coupon Duration In Months]
+                [Discount_coupon_id = Step 1 Data Object Coupon ID]
+                [Discount_coupon_percent_off = Step 1 Data Object Coupon Percent Off]
+                [Discount_coupon_valid = Use a Custom Value (advanced)]
+                [Custom Value for discount_coupon_valid = Step 1 Data Object Coupon Valid]
+                [Email = Step 1 Data Object Email]
+                [Event_type = Step 1 Type]
+                [Livemode = Use a Custom Value (advanced)]
+                [Custom Value for livemode = Step 1 Data Object Livemode]
+                [Object = Step 1 Data Object Object]
+                [Sources_total_count = Step 1 Data Object Sources Total Count]  
+                [Subscriptions_toal_count = Step 1 Data Object Subscriptions Total Count]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Stripe Customer]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 2 ID]
+            [Account_balance = Step 1 Data Object Account Balance]
+            [Created = Step 1 Created]
+            [Currency = Step 1 Data Object Currency]
+            [Delinquent = Use a Custom Value (advanced)]
+            [Custom Value for delinquent = Step 1 Data Object Delinquent]
+            [Description = Step 1 Data Object Description]
+            [Discount_coupon_amount_off = Step 1 Data Object Coupon Amount Off]
+            [Discount_coupon_duration = Step 1 Data Object Coupon Duration]
+            [Discount_coupon_durantion_in_months = Step 1 Data Object Coupon Duration In Months]
+            [Discount_coupon_id = Step 1 Data Object Coupon ID]
+            [Discount_coupon_percent_off = Step 1 Data Object Coupon Percent Off]
+            [Discount_coupon_valid = Use a Custom Value (advanced)]
+            [Custom Value for discount_coupon_valid = Step 1 Data Object Coupon Valid]
+            [Email = Step 1 Data Object Email]
+            [Event_type = Step 1 Type]
+            [Stripe_customer_id = Step 1 Data Object ID]
+            [Livemode = Use a Custom Value (advanced)]
+            [Custom Value for livemode = Step 1 Data Object Livemode]
+            [Object = Step 1 Data Object Object]
+            [Sources_total_count = Step 1 Data Object Sources Total Count] 
+            [Subscriptions_toal_count = Step 1 Data Object Subscriptions Total Count] 
+                         

@@ -1,0 +1,26 @@
+Marketing Leads to Slack Notification
+https://zapier.com/app/editor/19704719/overview
+
+    Trigger - Email Parser by Zapier
+        Select Email Parser by Zapier Trigger - New Email
+        Select Email Parser by Zapier Account - 'Zapier Email Parser Account #1'
+        Set up Email Parser by Zapier Email
+            [Mailbox = 5qy5wxvj@robot.zapier.com]
+
+    Action - Slack (Legacy)
+        Select Slack (Legacy) Action - Send Channel Message
+        Select Slack (Legacy) Account - 'rfredrickson@cardtapp.com's Slack (Legacy)'
+        Set up Slack (Legacy) Channel Message
+            [Channel = marketing-leads]
+            [Message Text = 
+                Step 1 Parse Output Source   Lead Created
+                SFDC Link: Step 1 Parse Output Sflink
+                Source: Step 1 Parse Output Source
+                UTM_Content: Step 1 Parse Output Utmcontent
+            ] 
+            [Send as a bot? = yes]
+            [Bot Name = leads-bot]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = no]
+            [Send @Mention Notifications? = yes]
+               

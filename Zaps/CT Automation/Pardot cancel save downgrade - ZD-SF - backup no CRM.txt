@@ -1,0 +1,71 @@
+Pardot cancel save downgrade -> ZD/SF backup no CRM
+https://zapier.com/app/editor/22984122/overview
+
+    Trigger - Gmail
+        Select Gmail Trigger - New Email Matching Search
+        Select Gmail Account - 'Pascal Gmail ppinck@cardtapp.com'
+        Set up Gmail Email Matching Search
+            [Search String = from:info@pardot.com Pardot Page View Alert: CardTapp - Confirm New $4.99 month -CRM]
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data =
+                emailSubject | Step 1 Subject 
+                emailBody | Step 1 Body Plain
+            ] 
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]       
+    
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Cancel save downgrade: Step 2 Member Email]
+            [Requester Name = Pascal Pinck]
+            [Requester Email = ppinck@cardtapp.com]
+            [First Comment/Description Format = Plain Text]
+            [First Comment/Description =
+                An indivdual cancellation has been processed by the Pardot -> SF automation for:
+
+                Email: Step 2 Member Email
+
+                IMPORTANT:  This member could not be matched to a Salesforce record, possibly because the email is different. As a result, no automated actions have been taken in the contact record. 
+
+                First step:
+                -- Find the correct contact record in SF
+
+                What needs to be done in Stripe:
+                - Delete the member's existing plan in Stripe
+                - Add the "Monthly No Sharing Plan - $19/mo" 
+                - If switching from an annual or quarterly, trial out the plan until the member's renewal date
+
+                What needs to be done in ZD:
+                - Add public comment to member confirming that they are now on the $4/mo plan, and informing them that they won't be eligible to share their app.
+                - Close ticket
+
+                What needs to be done in SF:
+                - Set the "downgrade status" field to "(3) Member notified"
+                - Set the "downgraded?" checkbox to checked
+
+                What needs to be done in App Admin:
+                - Reset EasyText keyword to generic pattern (subdomain + 3 numbers) if premium subscription was included  
+            ]
+            [Should the first comment be public? = No]
+            [Tags = no_auto_confirm_ticket_received]
+            [Resolution = Saved Cancellation]
+            [Ticket Source = Pardot Cancel Save Downgrade Form]
+            [Request Type = Subscription Change]
+
+    Action - Slack(Legacy)
+        Select Slack(Legacy) Action - Send Private Channel Message
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)'
+        Set up Slack(Legacy) Private Channel Message
+            [Channel = pardot-cancel-process]
+            [Message Text = Step 2 Member Email  saved with $19/mo downgrade (Unable to match to SF record)]
+            [Send as a Bot? = yes]
+            [Bot Name = cancel-bot]
+            [Bot Icon Emoji = :partly_sunny:]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notificatiosn? = yes]
+            

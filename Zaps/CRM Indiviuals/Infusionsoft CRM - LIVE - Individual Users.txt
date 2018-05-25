@@ -1,0 +1,83 @@
+Infusionsoft CRM - LIVE - Individual Users
+https://zapier.com/app/editor/25497214/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Infusionsoft Zapier Indiv Users'
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request  
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .infusionsoft.com:443/api/xmlrpc]  
+            [Data Pass-Through? = no]
+            [Data = 
+                <?xml version='1.0' encoding='UTF-8'?>
+                <methodCall>
+                <methodName>ContactService.add</methodName>
+                <params>
+                    <param>
+                    <value><string> Step 1 Member Meta Data Crm Api Key </string></value>
+                    </param>
+                    <param>
+                    <value><struct>
+                        <member><name>FirstName</name>
+                        <value><string> Step 1 Tapper Firstname Descriptive </string></value>
+                        </member>
+                        <member><name>LastName</name>
+                        <value><string> Step 1 Tapper Lastname Descriptive </string></value>
+                        </member>
+                        <member><name>Email</name>
+                        <value><string> Step 1 Tapper Email Clean </string></value>
+                        </member>
+                            <member><name>Phone1</name>
+                        <value><string> Step 1 Tapper Mobile Phone Formatted </string></value>
+                        </member>
+                        <member><name>Phone1Type</name>
+                        <value><string>Mobile</string></value>
+                        </member>
+                        <member><name>ReferralCode</name>
+                        <value><string>Cardtapp - Step 1 Referrer Name Descriptive </string></value>
+                        </member>
+                        <member><name>OwnerID</name>
+                        <value><string> Step 1 Member Meta Data Crm Owner ID </string></value>
+                        </member> </struct></value>
+                    </param>
+                </params>
+                </methodCall>
+            ]
+            [Unflatted = no]
+            [Headers = Content-Type | application/xml]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Member Meta Data Crm Owner Data 1 | Exists
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .infusionsoft.com:443/api/xmlrpc]         
+            [Data Pass-Through? = no]
+            [Data = 
+                <?xml version='1.0' encoding='UTF-8'?>
+                <methodCall>
+                <methodName>ContactService.addToGroup</methodName>
+                <params>
+                    <param>
+                    <value><string> Step 1 Member Meta Data Crm Api Key </string></value>
+                </param>
+                    <param>
+                    <value><int> Step 2 Method Response Params Param Value l4 </int></value>
+                    </param>
+                    <param>
+                    <value><int> Step 1 Member Meta Data Crm Owner Data 1 </int></value>
+                    </param>
+                </params>
+                </methodCall>
+            ]  
+            [Unflatten = no]
+            [Headers = Content-Type | application/xml]
+            

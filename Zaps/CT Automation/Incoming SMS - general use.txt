@@ -1,0 +1,52 @@
+Incoming SMS - general use
+https://zapier.com/app/editor/15366045/overview
+
+    Trigger - Salesforce
+        Select Salesforce Trigger - New Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = Incoming SMS]
+            [Limit = 200]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing -
+            SMS Text | (Text) Does not contain | [Auto-Reply]
+            Mobile Number | (Text) Does not exactly match | 15626508730
+            SMS Text | (Text) Does not contain | Auto-Reply:
+            SMS Text | (Text) Does not contain | Auto Text Reply:
+            SMS Text | (Text) Does not contain | [AutoReply]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket   
+            [Subject = Incoming SMS from Step 1 Contact (Step 1 Mobile Number)]
+            [Requester Name = Step 1 Contact]
+            [Requester Email = Step 1 Contact Email]
+            [First Comment/Description
+                Step 1 Mobile Number (Step 1 Contact)said:
+                "Step 1 SMS Text"
+                Message: http://login.salesforce.com/Step 1 Record ID
+                Contact: http://login.salesforce.com/Step 1 Smagicinteract Contact C Raw
+                Reply now: Step 1 Quick reply URL
+                Owner: Step 1 Owner Name
+            ]      
+            [Should the first comment be public? = Yes]
+            [Tags = no_csat_survey]
+            [Ticket Source = SMS Response Source]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task  
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Today]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = Support ticket created from inbound SMS]
+            [Related To = Use a Custom Value (advanced)]
+            [Custom Value for Related To ID = Step 1 Record ID]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 1 Smagicinteract Contact C Raw]
+                              

@@ -1,0 +1,35 @@
+Whiteboard CRM indiv users
+https://zapier.com/app/editor/36799915/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Whiteboard CRM indiv users'
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://leads.whiteboard.software/ Step 1 Member Meta Data Crm Api Key]
+            [Data Pass-Through? = no]
+            [Data = 
+                <?xml version="1.0" encoding="UTF-8"?>
+                <?wbdi version="1.0"?>
+                <wbdi>
+                    <prospect>
+                        <borrower>
+                            <cell_phone> Step 1 Tapper Mobile Phone Formatted </cell_phone>
+                            <client_notes>Cardtapp Referrer: Step 1 Referrer Name Descriptive </client_notes>
+                            <email> Step 1 Tapper Email Clean </email>
+                            <first_name> Step 1 Tapper Firstname Descriptive </first_name>
+                            <last_name> Step 1 Tapper Lastname Descriptive </last_name>
+                        </borrower>
+                        <vendor>
+                            <vendor_name>Cardtapp</vendor_name>
+                            <vendor_key> Step 1 Member Meta Data Crm Api Key </vendor_key>
+                        </vendor>
+                    </prospect>
+                </wbdi>
+            ]
+            [Unflatten = no]
+            [Headers = Content-Type | application/xml]
+            

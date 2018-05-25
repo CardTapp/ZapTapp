@@ -1,0 +1,37 @@
+Essex Mortgage - Troy Weatherly group - tapper created v2.0 - Prod - LIVE
+https://zapier.com/app/editor/37152571/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapper Created
+        Select CardTapp Internal Account - 'Essex Mortgage - Weatherly acct mgr'
+
+    Search - SalesForce
+        Select Salesforce Action - Find a Custom Object
+        Select SalesForce Account - 'Essex Mortgage - Weatherly - prod'
+        Search for Salesforce Custom Object
+            [Custom Object Type = User]
+            [Field to Search By = CardTapp app email address]
+            [Search Value = Step 1 Member Email]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'Essex Mortgage - Weatherly - prod'
+        Set up Salesforce Custom Object
+            [Custom Type = JungoLeads]
+            [Description = Referred by: Step 1 Referer Name Descriptive]
+            [Email = Step 1 Tapper Email Clean]
+            [First Name = Step 1 Tapper Firstname Descriptive ] 
+            [Last Name = Step 1 Tapper Lastname Descriptive]
+            [Lead Source = CardTapp]
+            [Phone = Step 1 Tapper Mobile Phone Formatted]
+            [Owner = Use a Custom Value(advanced)]
+            [CUstom Value for Owner ID = Step 2 ID]       
+
+    Action - CardTapp  
+        Select CardTapp Internal Action - Update Tapper
+        Select CardTapp Internal Account - 'Essex Mortgage - Weatherly acct mgr'
+        Set up CardTapp Internal Tapper 
+            [Tapper External ID = Step 1 Tapper External ID]
+            [Status = Status]
+            [Meta Data = [{"key":"tapper_crm_id","value":" Step 3 ID ","export":true},{"key":"tapper_crm_type","value":"salesforce","export":true}] ]
+            

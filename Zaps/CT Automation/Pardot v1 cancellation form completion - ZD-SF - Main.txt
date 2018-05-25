@@ -1,0 +1,105 @@
+Pardot v1 cancellation form completion -> ZD/SF - Main
+https://zapier.com/app/editor/22783426/overview
+
+    Trigger - Gmail
+        Select Gmail Trigger - New Email Matching Search
+        Select Gmail Account - 'Pascal Gmail ppinck@cardtapp.com'
+        Set up Gmail Email Matching Search
+            [Search String = from:info@pardot.com pardot form: v1 confirm cancellation CRM ]
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data =
+                emailSubject | Step 1 Subject 
+                emailBody | Step 1 Body Plain
+            ]        
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - Contact ID | Exists
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Contact
+            [Field to Search By = Contact ID]
+            [Search Value = Step 2 Contact ID]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Contact
+            [ID = Use a Custom Value (advanced)]
+            [Custom Value for ID = Step 2 Contact ID]
+            [Date Requested Cancellation = Step 1 Zap Meta Human Now]
+            [Paid Subscription End Date = Step 4 Paid Sub End Date If Cancelled Today C]
+            [Reason for Cancellation = Use a Custom Value (advanced)]
+            [Custom Value for Reason for Cancellation = See Pardot text field #1]
+            [Status = Cancelled]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Confirmed cancellation: Step 2 Member Email]
+            [Requester Name = Step 4 Name]
+            [Requester Email = Step 2 Member Email]   
+            [First Comment/Description Format = Plain Text] 
+            [First Comment/Description = 
+                
+                An indivdual cancellation has been processed by the Pardot -> SF automation for:
+
+                Name: Step 4 Name
+                Email: Step 4 Email
+                Mobile: Step 4 Mobile Phone
+                SF link:  https://login.salesforce.com/Step 2 Contact ID
+                Cancellation Reason: Step 4 Utm Age C
+
+                What has been done:
+                - Status set to Cancelled
+                - Requested Cancellation button checked
+                - Cancellation date populated
+                - Paid Subscription End Date populated based on a "best guess" algorithm
+
+                What needs to be done:
+                - Verify that Paid Subscription End Date is correct
+                - Check Stripe record to see if subscriptions have been removed correctly
+                - Issue any refund if eligible. If the refund is for a new customer (< 30 days), notify Accounting, the rep,   the rep's sales manager, and Pascal.
+                - Reset EasyText keyword to generic pattern (subdomain + 3 numbers) if Premium subscription was included  
+
+                Stripe record:  https://dashboard.stripe.com/customers/Step 4 Stripe Token C
+            ]    
+            [Should the first comment be public? = No]
+            [Tags = no_auto_confirm_ticket_received, no_csat_survey]
+            [Resolution = Cancelled]
+            [Ticket Source = Pardot Cancel Request Form]
+            [Request Type = Cancel Request]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task 
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task 
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Zap Meta Human Now]
+            [Description = https://cardtapp.zendesk.com/agent/tickets/Step 6 ID]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = ZD Ticket #Step 6 ID: App cancelled automatically via Pardot -> Sf automation]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 2 Contact ID]
+
+    Action - Slack(Legacy) 
+        Select Slack(Legacy) Action - Send Private Channel Message 
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)'
+        Set up Slack(Legacy) Private Channel Message 
+            [Channel = pardot-cancel-process]
+            [Message Text = <https://login.salesforce.com/Step 2 Contact ID | Step 4 Name > cancelled. Reason: "Step 4 Utm Age C"]
+            [Send as a Bot? = yes]
+            [Bot Name = cancel-bot]
+            [Bot Icon Emoji = :rain_cloud:]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+                

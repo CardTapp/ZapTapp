@@ -1,0 +1,29 @@
+Umpqua Bank - Vantage 
+https://zapier.com/app/editor/25088408/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapper Created 
+        Select CardTapp Internal Account - 'Umpqua Bank Zapier'
+
+    Action - Webhook
+        Select Webhooks by Zapier Action - POST
+        Set up Webhooks by Zapier POST
+            [URL = https://integration.vantageproduction2.com/CRMPostingService/VIPLeadImportPOST.aspx]
+            [Payload Type = Form]    
+            [Data = 
+                CellPhone               |      Step 1 Tapper Mobile Phone Formatted
+                IsTestLead              |      0
+                FirstName               |      Step 1 Tapper Firstname Descriptive
+                SourceLeadDate          |      Step 1 Zap Meta Human Now
+                SourceID                |      6367
+                LastName                |      Step 1 Tapper Lastname Descriptive 
+                AssignmentOverrideType  |      Pipeline 
+                SourceExternalID        |      Step 1 Tapper External ID 
+                AssignmentOverrideValue |      Step 1 Member Meta Data Crm Owner ID 
+                SourcePassword          |      cardtapp 
+                CustomerIP              |      0.0.0.0
+                SubscriptionID          |      Step 1 Member Meta Data Crm Organization ID
+                Email                   |      Step 1 Tapper Email Required Unique
+            ]
+            [Wrap Request In Array = no]
+            [Unflatten = no]

@@ -1,0 +1,26 @@
+Inbound Twilio text msg handler
+https://zapier.com/app/editor/22621628/overview
+
+    Trigger - Webhook by Zapier
+        Select Webhook by Zapier Trigger - Catch Hook
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/9sxjk7/
+        Set up Webhooks by Zapier Hook
+            [Pick off a Child Key = Blank]
+
+    Action - Formatter by Zapier
+        Select Formatter by Zapier Action - Text (Legacy) 
+        Set up Formatter by Zapier Text
+            [Transform = Replace]
+            [Input = Step 1 From]
+            [Find = +]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object                  
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object 
+            [Custom Type = Incoming SMS]
+            [External Field = Step 1 SMS Message Sid]
+            [Inbound Number = Step 1 To]
+            [Mobile Number = Step 2 From]
+            [SMS Text = Step 1 Body]
+            

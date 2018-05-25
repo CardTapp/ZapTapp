@@ -1,0 +1,24 @@
+American Capital Mortgage - Velocify LIVE
+https://zapier.com/app/editor/28016374/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapper Created
+        Select CardTapp Internal Account - 'American Capital Mortgage - MM - for Velocify'
+
+    Action - Webhook
+        Select Webhooks by Zapier Action - Custom Request 
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://secure.velocify.com/Import.aspx?Provider=CardTapp&Client=AmericanCapitalHomeLoans&CampaignId=420&XmlResponse=true]
+            [Data Pass-Through = no]
+            [Data =  
+                FirstName= Step 1 Tapper Firstname Descriptive 
+                &LastName= Step1 Tapper Lastname Descriptive 
+                &Phone= Step 1 Tapper Phone Number
+                &CardTappUser= Step 1 Member Email
+                &Email= Step 1 Tapper Email Clean 
+                &CardTappUniqueID= Step 1 Tapper External ID 
+                &CardTappReferrer= Step 1 Referrer Name]
+            [Unflatten = no]
+            
+            

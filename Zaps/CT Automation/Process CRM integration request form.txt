@@ -1,0 +1,105 @@
+Process CRM integration request form
+https://zapier.com/app/editor/26592394/overview
+
+    Trigger - SurveyGizmo
+        Select SurveyGizmo Trigger - New Survey Response
+        Select SurveyGizmo Account - 'ppinck@cardtapp.com's SurveyGizmo'
+        Set up SurveyGizmo Survey Response
+            [Survey = CRM Integration Request Form]
+            [Only Complete Responses? = yes]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = Service Request]
+            [Comment = Step 1 Which CRM system will Cardtapp be sending lead data to?]
+            [Contact = Use a Custom Value (advanced)]
+            [Custom Value for Contact ID = Step 1 Salesforce Contact ID]
+            [Description =
+            
+                Request from Step 1 Name <br>
+                <a href="https://login.salesforce.com/Step 1 Salesforce Contact ID ">https://login.salesforce.com/Step 1 Salesforce Contact ID</a><br>
+                <br>
+                <br>
+                <b>CRM system:</b>  Step 1 Which CRM system will Cardtapp be sending lead data to? }<br>
+                <br>
+                <b>Which version of Surefire CRM are you using?</b> 
+                Ste[ 1 Which version of Surefire CRM are you using? <br>
+                <br>
+                <b>Which URL do you use to access Step 1 Which CRM System will Cardtapp be sending lead data to? ? </b><br>
+                Step 1 Which URL do you use to access question ('value'), id='2'? <br><br>
+
+                <b>Please provide an administrator username (= email)  for your Step 1 Which CRM System will Cardtapp be sending lead data to? account:</b><br>
+                Step 1 Please provide an administrator username  (= email) for your question ('value'), id ='2' account
+                <br><br>
+                <b>What is your Step 1 Which CRM System will Cardtapp be sending lead data to? API Key?</b><br>
+                Step 1 What is your API Key? <br><br>
+
+                <b>Do you use Step 1 Email as the user credential to identify yourself in Step 1 Which CRM system will Cardtapp be sending lead data to?? </b><br>
+                Step 1 Do you use   question('value'), id='33' as the user credential to identif yourself in question ('value'), id='2'?
+                <br><br>
+                <b>Please provide the email address of the Step 1 Which CRM system will Cardtapp be sending lead data to? user who will "own" all contacts created:</b><br>
+                In that case, you will need to identify a....
+                <br><br>
+                <b>What is the name of your dealership?</b><br>
+                Step 1 What is the name of your dealership...
+                <br><br>
+                <b>What is the dealership-wide email address used by your CRM system to receive all internet leads?</b><br>
+                Step 1 What is the dealership wide email address use by your CRM system to receive all internet leads?
+                <br><br>
+                <b>Please provide as much detail as possible about the system you would like to integrate with:</b><br>
+                Step 1 Please provide as much detail as possible about the system you would like to integrate with:
+            ]
+            [Request Type = CRM Integration]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = CRM Integration request for Step 1 Name]
+            [Assignee = CardTapp Support agent]
+            [Requester Name = Step 1 Name]
+            [Requester Email = Step 1 Email]
+            [First Comment/Description Format = HTML]
+            [First Comment/Description =
+                Request from Step 1 Name <br>
+                <a href="https://login.salesforce.com/Step 1 Salesforce Contact ID ">https://login.salesforce.com/Step 1 Salesforce Contact ID</a><br>
+                <br>
+                <br>
+                <b>CRM system:</b>  Step 1 Which CRM system will Cardtapp be sending lead data to? }<br>
+                <br>
+                <b>Which version of Surefire CRM are you using?</b> 
+                Step 1 Which version of Surefire CRM are you using? <br>
+                <br>
+                <b>Which URL do you use to access Step 1 Which CRM System will Cardtapp be sending lead data to? ? </b><br>
+                Step 1 Which URL do you use to access question ('value'), id='2'? <br><br>
+
+                <b>Please provide an administrator username (= email)  for your Step 1 Which CRM System will Cardtapp be sending lead data to? account:</b><br>
+                Step 1 Please provide an administrator username  (= email) for your question ('value'), id ='2' account
+                <br><br>
+                <b>What is your Step 1 Which CRM System will Cardtapp be sending lead data to? API Key?</b><br>
+                Step 1 What is your API Key? <br><br>
+
+                <b>Do you use Step 1 Email as the user credential to identify yourself in Step 1 Which CRM system will Cardtapp be sending lead data to?? </b><br>
+                Step 1 Do you use   question('value'), id='33' as the user credential to identif yourself in question ('value'), id='2'?
+                <br><br>
+                <b>Please provide the email address of the Step 1 Which CRM system will Cardtapp be sending lead data to? user who will "own" all contacts created:</b><br>
+                In that case, you will need to identify a....
+                <br><br>
+                <b>What is the name of your dealership?</b><br>
+                Step 1 What is the name of your dealership...
+                <br><br>
+                <b>What is the dealership-wide email address used by your CRM system to receive all internet leads?</b><br>
+                Step 1 What is the dealership wide email address use by your CRM system to receive all internet leads?
+                <br><br>
+                <b>Please provide as much detail as possible about the system you would like to integrate with:</b><br>
+                Step 1 Please provide as much detail as possible about the system you would like to integrate with:
+            ] 
+            [Should the first comment be public? = No]
+            [Tags = crm_integration]
+            [Status = Open]
+            [Ticket form = CS Team View]
+            [Ticket Source = Automation SF]
+            [Request Type = CRM Integration]
+                  

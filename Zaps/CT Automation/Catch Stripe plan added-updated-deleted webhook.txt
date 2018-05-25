@@ -1,0 +1,27 @@
+Catch Stripe plan added/updated/deleted webhook
+https://zapier.com/app/editor/31883418/overview
+
+    Trigger - Webhook
+        Select Webhooks by Zapier Trigger - Catch Hook
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/zy958v/
+        Set up Webhooks by Zapier Hook
+            [Pick off a Child Key = Blank]
+
+    Search or Create - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object 
+            [Custom Object Type = Stripe Plan]
+            [Field to Search By = Stripe_plan_id]
+            [Search Value = Step 1 Data Object ID]       
+            *Check Box* Create Salesforce Custom Object if it doesn't exist yet? - ✓
+                [Interval Count = Step 1 Data Object Interval Count]
+                [Stripe Plan Name = Step 1 Data Object Name]
+                [Stripe_plan_id = Step 1 Data Object ID]
+                [Trial Period Days = Step 1 Data Object Trial Period Days]
+                [Amount = Step 1 Data Object Amount]
+                [Created_at = Step 1 Created]
+                [Event_type = Step 1 Type]
+                [Interval = Use a Custom Value (advanced)]
+                [Custom Value for Interval = Step 1 Data Object Interval]
+                

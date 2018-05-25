@@ -1,0 +1,56 @@
+CS Easytext keyword automation (incl. no sms upgrade)
+https://zapier.com/app/editor/31220422/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapper Created
+        Select CardTapp Internal Account - 'CS Easytext keyword automation -incl. no sms upgrade'
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type - Service Request]
+            [Request Type = Use a Custom Value (advanced)]
+            [Custom Value for Request Type = Step 1 Member Meta Data SF Request Type]  
+            [Requesting Mobile Number = Step 1 Tapper Phone Number]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - Member Meta Data Create Zendesk Ticket | (Text) Exactly matches | true 
+
+    Action - Delay
+        Select Delay by Zapier Action - Delay For 
+        Set up Delay by Zapier Time
+            [Time Delayed For (value) = 2]
+            [Time Delayed For (unit) = Minutes] 
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object
+            [Custom Object Type = Service Request]
+            [Field to Search By = Record ID]
+            [Search Value = Step 2 ID]
+
+    Action - Zendesk 
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Step 1 Member Meta Data Zendesk Ticket Subject]
+            [Requester Name = Step 5 Contact Name C]
+            [Requester Email = Step 5 Contact Email C]
+            [First Comment/Description Format = Plain Text]
+            [First Comment/Description =
+            A service request has been created in Salesforce through EasyText keyword automation.
+
+            Easytext keyword:  Step 1 Member Subdomain
+            Requesting mobile phone#:  Step 1 Tapper Mobile Phone Formatted
+            Service request link:  https://login.salesforce.com/Step 2 ID
+            Contact link:  https://login.salesforce.com/Step 5 Contact C
+            ]                        
+            [Should the first comment be public? = No]
+            [Status = New]
+            [Ticket Form = CS Team View]
+            [Classification = Individual]
+            [Ticket Source = Automation SF]
+            [Request Type = Upgrade Package]

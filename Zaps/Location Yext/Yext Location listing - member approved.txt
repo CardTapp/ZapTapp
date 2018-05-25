@@ -1,0 +1,52 @@
+Yext Location/listing - member approved
+https://zapier.com/app/editor/34376374/overview
+
+    Trigger - SurveyGizmo
+        Select SurveyGizmo Trigger - New Survey Response
+        Select SurveyGizmo Account - 'ppinck@cardtapp.com's SurveyGizmo'
+        Set up SurveyGizmo Survey Response
+            [Survey = Approve listing]
+            [Only Complete Responses? = no]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - 
+            I approve this listing for online publication | (Text) Exactly matches | Yes
+            id  | Exists        
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Date Submitted]
+            [Description = 
+                Listing name: Step 1 listing_name
+                Description: Step 1 description
+                License info: Step 1 license_info
+                Address line 1: Step 1 address
+                Address line 2: Step 1 address_line_2
+                City: Step 1 city 
+                State: Step 1 state 
+                Postal code: Step 1 postal_code
+                Business line?: Step 1 BL
+                Office number: Step 1 office_number
+                Approver name: Step 1 Please provide your name to complete approval:            
+            ]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = Location/listing approval form submitted - approved by Step 1 Please provide your name to complete approval: ]
+            [Related to = Use a Custom Value (advanced)]
+            [Custom Value for Related To ID = Step 1 id]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 1 cid]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Location]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 1 id]
+            [Action to take = Set To (12) Yext Data Approved By Customer]
+            [Yext program status = (12) Yext Data Approved By Customer]

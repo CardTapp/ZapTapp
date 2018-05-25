@@ -1,0 +1,50 @@
+Catch Stripe source added/updated/deleted webhook
+https://zapier.com/app/editor/34469980/overview
+
+    Trigger - Webhook 
+        Select Webhooks by Zapier Trigger - Catch Hook 
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/kz06i3/
+        Set up Webhook by Zapier Hook
+            [Pick off a Child Key = Blank]
+
+    Search or Create - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object
+            [Custom Object Type = Stripe Source (Card)]
+            [Field to Search By = id]
+            [Search Value = Step 1 Data Object ID]
+            *Check Box* Create Salesforce Custom Object if it doesn't exist yet? - ✓
+                [Brand = Step 1 Data Object Brand]
+                [Country = Step 1 Data Object Country]
+                [Customer = Step 1 Data Object Customer]
+                [Cvc_check = Step 1 Data Object Cvc Check]
+                [Event_type = Step 1 Type]
+                [Exp_month = Step 1 Data Object Exp Month]
+                [Exp_year = Step 1 Data Object Exp Year]
+                [Fingerprint = Step 1 Data Object Fingerprints]
+                [Funding = Step 1 Data Object Funding]
+                [ID = Step 1 Data Object ID]
+                [Last4 = Step 1 Data Object Last4]
+                [Object = Step 1 Data Object Object]
+
+    Action - Salesforce 
+        Select Salesforce Action - Update Custom Object 
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object 
+            [Object Type = Stripe Source (Card)]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 2 ID]
+            [Brand = Step 1 Data Object Brand]
+            [Country = Step 1 Data Object Country] 
+            [Customer = Step 1 Data Object Customer]
+            [Cvc_check = Step 1 Data Object Cvc Check]
+            [Event_type = Step 1 Type]
+            [Exp_month = Step 1 Data Object Exp Month]
+            [Exp_year = Step 1 Data Object Exp Year]
+            [Fingerprint = Step 1 Data Object Fingerprint]
+            [Funding = Step 1 Data Object Funding]
+            [ID = Step 1 Data Object ID]
+            [Last4 = Step 1 Data Object Last4]
+            [Object = Step 1 Data Object Object]
+            
