@@ -1,0 +1,48 @@
+Essex Mortgage - Note Created v2.0 - production LIVE
+https://zapier.com/app/editor/37152385/overview
+
+    Trigger - CardTapp
+        Select Cardtapp Internal Trigger - Note Created
+        Select CardTapp Internal Account - 'Essex Mortgage - Weatherly acct mgr'
+
+    Action - Delay For
+        Select Delay by Zapier Action - Delay For
+            [Time Delayed For (value) = 1]
+            [Time Delayed For (unit) = Minutes]
+
+    Search - Cardtapp
+        Select Cardtapp Internal Action - Find Tapper
+        Select Cardtapp Internal Account - 'Essex Mortgage - Weatherly acct mgr'
+        Search for Cardtapp Internal Tapper
+            [Tapper External ID = Step 1 Tapper External ID] 
+
+    Filter 
+        Select Filter - Only Continue if...
+        Filter Setup & Testing  
+            Only Continue if... 
+                Tapper Meta Data Tapper Crm ID | Exists
+
+    Action - Salesforce 
+        Select Salesforce Action - Create Task
+        Select Salesforce Account - 'Essex Mortgage - Weaterly - prod'
+        Set up Salesforce Task
+            [Status = Completed]
+            [Priority = Normal]
+            [Description = Step 1 Note Text]
+            [Subject = Use a Custom Value(advanced)]
+            [Custom Value for Subject = CardTapp referrer note]
+            [Related To = Use a Custom Value (advanced)]
+            [Custom Value for Realted To ID = Step 1 Tapper Meta Data Tapper Crm ID]
+     
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - "Essex Mortgage - Weatherly - prod"
+        Set up Salesforce Custom Object
+            [Object Type = JungoLeads]
+            [Object = Use a Custom Value(advanced)]
+            [Custom Value for Object ID = Step 1 Tapper Meta Data Tapper Crm ID]
+            [Comments = Step 1 Note Text]
+            
+
+

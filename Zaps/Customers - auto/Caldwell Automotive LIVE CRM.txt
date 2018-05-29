@@ -1,0 +1,51 @@
+Caldwell Automotive LIVE CRM
+https://zapier.com/app/editor/27355650/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapper Created
+        Select CardTapp Internal Account - 'Caldwell Automotive (Chrysler)'
+
+    Action - SMTP
+        Select SMTP by Zapier Action - Send Email
+        Select SMTP by Zapier Account - 'SMTP garble1070'         
+        Set up SMTP by Zapier Email
+            [From Email = support@cardtapp.com ]
+            [To = Member Meta Data CRM Submission Email]
+            [Subject = Cardtapp lead -- Assign to Step 1 Member Name at Step 1 Member Meta Data CRM Organization ID]
+            [Body = 
+                <?XML VERSION "1.0"?>
+                    <?ADF VERSION "1.0"?>
+                        <adf>
+                        <prospect>
+                        <id sequence="1" source="Cardtapp"> Step 1 Tapper External ID </id>
+                        <requestdate> Step 1 Zap Meta Utc Iso </requestdate>
+                        <vehicle>
+                            <year>N/A</year>
+                            <make>N/A</make>
+                            <model>N/A</model>
+                        </vehicle>
+                        <customer>
+                            <contact>
+                                <name part="first"> Step 1 Tapper Firstname Descriptive </name>
+                                <name part="last"> Step 1 Tapper Lastname Descriptive </name>
+                                <email> Step 1 Tapper Email Clean </email>
+                                <phone type="cellphone"> Step 1 Tapper Mobile Phone Formatted </phone>
+                            </contact>
+                            <comments>Cardtapp app owner: Step 1 Member Name --------- Referred by: Step 1 Referrer Name </comments>
+                        </customer>
+                        <vendor>
+                            <vendorname> Step 1 Member Meta Data Crm Organization ID </vendorname>
+                        <contact>
+                            <name type="business"> Step 1 Member Meta Data Crm Organization ID </name>
+                        </contact>
+                        </vendor>
+                    <provider>
+                        <name type="business">Cardtapp</name>
+                        <contact>
+                            <email preferredcontact="1">support@cardtapp.com</email>
+                            <phone time="day">855-883-5127</phone>
+                        </contact>
+                    </provider>
+                    </prospect>
+                    </adf>  
+            ]

@@ -1,0 +1,80 @@
+SugarCRM - LIVE individual users
+https://zapier.com/app/editor/30509603/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'SugarCRM indiv Zapier Automation'
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .sugarcrm.com/rest/v11/oauth2/token]  
+            [Data Pass-Through? = no]
+            [Data = grant_type=password&client_id=sugar&client_secret=&username= Step 1 Member Meta Data Crm Api Username &password= Step 1 Member Meta Data Crm Api Password &platform=cardtapp]
+            [Unflatten = yes]
+            [Headers = Content-Type | application/x-www-form-urlencoded]
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .sugarcrm.com/rest/v11/Users/filter]    
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                    "filter":[  
+                    { 
+                            "user_name":" Step 1 Member Meta Data Crm Owner ID "
+                    }
+                ],
+                "max_num":1,
+                "offset":0,
+                "fields":"id"
+                }
+            ]    
+            [Unflatten = yes]
+            [Headers =
+                OAuth-Token | Step 2 Access Token
+                Content-Type | application/json
+                Cache-Control | no-cache
+            ]
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .sugarcrm.com/rest/v11/oauth2/token]
+            [Data Pass-Through? = no]
+            [Data = grant_type=refresh_token&client_id=sugar&refresh_token= Step 2 Refresh Token]
+            [Unflatten = yes]
+            [Headers = Content-Type | application/x-www-form-urlencoded]
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .sugarcrm.com/rest/v11/Contacts/]
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                    "first_name":" Step 1 Tapper Firstname Descriptive ",
+                    "last_name":" Step 1 Tapper Lastname Descriptive ",
+                    "description":"Cardtapp Referrer: Step 1 Referrer Name Descriptive ",
+                    "phone_mobile":" Step 1 Tapper Mobile Phone Formatted ",
+                    "email": [
+                        {
+                            "email_address": " Step 1 Tapper Email Clean",
+                            "invalid_email": false,
+                            "opt_out": false,
+                            "primary_address": true
+                        }
+                    ],
+                    "assigned_user_id": " Step 3 Records ID "
+                }
+            ]
+            [Unflatten = yes]
+            [Headers = 
+                OAuth-Token | Step 4 Access Token
+                Content-Type | application/json
+                Cache-Control | no-cache            
+            ]

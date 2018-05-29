@@ -1,0 +1,59 @@
+Member NPS workflow to SF & Slack
+https://zapier.com/app/editor/8140555/overview
+
+    Trigger - SurveyGizmo
+        Select SurveyGizmo Trigger - New Survey Response
+        Select SurveyGizmo Account - 'ppinck@cardtapp.com's SurveyGizmo'
+        Set up SurveyGizmo Survey Response
+            [Survey = Net promoter score]
+            [Only Complete Responses? = yes]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing -
+            Only continue if...  
+            <div style="text-align:center;">How likely would you be to recommend a Cardtapp mobile app subscription to a friend or colleague?<br /><br /><span style="color:#A9A9A9;"><em>0 = very unlikely 10 = very likely</em></span></div>
+            | (Text) Exactly matches | 0
+            OR continue if...
+            <div style="text-align:center;">How likely would you be to recommend a Cardtapp mobile app subscription to a friend or colleague?<br /><br /><span style="color:#A9A9A9;"><em>0 = very unlikely 10 = very likely</em></span></div>
+            | Exists
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Contact
+            [Field to Search By = ExternalID]
+            [Search Value = Step 1 ext_id]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = Customer Survey]
+            [Comment = Step 1 Thanks! Care to tell us why you chose that rating?]
+            [Contact = Use a Custom Value (advanced)]
+            [Custom Value for Contact ID = Step 3 Contact]
+            [Customer Name = Step 3 Name]
+            [Email (from Contact) = Step 3 Email]
+            [Product (from Contact) = Step 3 Product C]
+            [Rating = Step 1 <div style="text-align:center;">How likely would you be to recommend a Cardtapp mobile app subscription  to a friend or colleague?<br /><br /><span style="color:#A9A9A9;"><em>0 = very unlikely 10 = very likely</em></span></div>]   
+            [Record Type = NPS Survey]
+            [Record Type Name = NPS Survey]
+            [Survey Date = Step 1 Zap Meta Human Now]
+
+    Action - Slack (Legacy) 
+        Select Slack (Legacy) Action - Send Channel Message
+        Select Slack (Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)'
+        Set up Slack (Legacy) Channel Message 
+            [Channel = nps-survey]
+            [Message Text = 
+                Step 3 Name | <https://login.salesforce.com/Step 3 Contact | SF contact> | <https://login.salesforce.com/Step 4 ID | SF survey record> | Step 3 Product C
+                Step 4 Rating C
+                Step 4 Comment C   
+            ]
+            [Send as a Bot? = Yes]
+            [Bot Name = nps-bot]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+                     

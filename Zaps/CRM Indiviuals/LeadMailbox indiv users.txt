@@ -1,0 +1,24 @@
+LeadMailbox indiv users
+https://zapier.com/app/editor/36474308/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'LeadMailbox indiv users'
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://v2.leadmailbox.com/api/leads/add/ Step 1 Member Meta Data Api URL Param]
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                "FirstName": " Step 1 Tapper Firstname Descriptive ",
+                "LastName": "Step 1 Tapper Lastname Descriptive ",
+                "Email": " Step 1 Tapper Email Clean ",
+                "MobilePhone": " Step 1 Tapper Mobile Phone Formatted ",
+                "Notes": "Cardtapp - Referred by: Step 1 Referrer Name Descriptive "
+                }
+            ]
+            [Unflatten = yes]
+                    

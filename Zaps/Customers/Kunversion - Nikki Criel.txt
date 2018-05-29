@@ -1,0 +1,23 @@
+Kunversion - Nikki Criel
+https://zapier.com/app/editor/22817626/overview
+
+    Trigger - Cardtapp 
+        Select Cardtapp Internal Trigger - Tapper Created 
+        Select Cardtapp Internal Account - 'Kunversion indiv Zapier'
+
+    Filter - Filter by Zapier 
+        Select Filter - Only continue if...
+        Filter Setup & Testing 
+            Only continue if...
+                Member Subdomain | (Text) Exactly matches | nikki 
+
+    Action - Kunversion
+        Select Kunversion Action - Add Lead 
+        Select Kunversion Account - 'Nikki Criel Kunversion'
+        Set up Kunversion Lead
+            [Email Address = Step 1 Tapper Email Clean]
+            [Phone Number = Step 1 Tapper Mobile Phone Formatted]
+            [Full Name = Step 1 Tapper Name Descriptive]
+            [Referrer = Cardtapp]
+            [Status = Lead]
+             

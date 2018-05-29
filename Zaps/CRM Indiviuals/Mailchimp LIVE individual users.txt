@@ -1,0 +1,41 @@
+Mailchimp LIVE individual users
+https://zapier.com/app/editor/29239310/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapp Created
+        Select Cardtapp Internal Account - 'Mailchimp indiv Zapier automation'
+
+    Filter - Filter by Zapier 
+        Select Filter - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Tapp Action | (Text) Exactly matches | registered
+                Tapper Email Clean | Exists
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data = email | Step 1 tapper email clean]
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]   
+    
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = PUT]
+            [URL = https:// Step 1 Member Meta Data Crm Organization ID .api.mailchimp.com/3.0/lists/ Step 1 Member Meta Data Crm Owner ID /members/ Step 3 Email Hash]
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                    "email_address": " Step 1 Tapper Email Clean ",
+                    "status_if_new":"subscribed",
+                    "merge_fields": {
+                        "FNAME": " Step 1 Firstname Descriptive ",
+                        "LNAME": " Step 1 Tapper Lastname Descriptive "
+                    },
+                    "interests": { Step 1 Member Meta Data Crm Owner Data 1  },
+                    "vip": true
+                }
+            ]
+            [Unflatten = no]
+            [Headers = Authorization | apikey Step 1 Member Meta Data Crm Api Key]
+            

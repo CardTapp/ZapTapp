@@ -1,0 +1,81 @@
+Failed Yext provisioning attempts
+https://zapier.com/app/editor/36478532/overview
+
+    Trigger - Gmail
+        Select Gmail Trigger - New Email Matching Search
+        Select Gmail Account - 'Pascal Gmail ppinck@cardtapp.com'
+        Set up Gmail Email Matching Search  
+            [Search String = "Yext Account Creation Error - production" from:admin@cardtapp.com]
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data = bodyText | Step 1 Body Plain]
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]
+    
+    Search - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object 
+            [Custom Object Type = Location]
+            [Field to Search By = App link text only]
+            [Search Value = Step 2 App Link]
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Contact
+        Select Salesforce Account 'SF Cardtapp (production)'
+        Search for Salesforce Contact 
+            [Field to Search By = Contact ID]
+            [Search Value = Step 3 Contact ID C]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket 
+            [Subject = Yext account creation error - Step 3 Contact Full Name C]
+            [Assignee = Vlad Vasic agent]                 
+            [Group = Support]
+            [Requester Name = Step 4 Name]
+            [Requester Email = Step 4 Email]
+            [First Comment/Description Format = Plain Text]
+            [First Comment/Description = 
+            Affected contact record:  https://login.salesforce.com/Step 3 Contact ID C
+            Affected location record:  https://login.salesforce.com/Step 3 ID
+
+            Step 1 Body Plain
+            ]
+            [Should the first comment be public? No]
+            [Tags = no_csat_survey]
+            [Type = Incident]
+            [Ticket Form = CS Team View]
+            [Classification = Individual]
+            [Ticket Source = Automation SF]
+            [Request Type = Yext Issue]
+
+    Action - Salesforce 
+        Select Salesforce Action - Update Custom Object        
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Location]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 3 ID]
+            [Yext Program Status = (16) Yext Account Failed Provisioning]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Zap Meta Human Now]
+            [Description = 
+                Status: Step 2 Status
+                Error: Step 2 Error
+            ]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = Failed attempt to provision Yext account: Step 2 Status]
+            [Related To = Use a Custom Value (advanced)]
+            [Custom Value for Related To ID = Step 3 ID]
+            [Name = Use a Custom Value(advanced)]
+            [Custom Value for Name ID = Step 3 Contact C]
+            

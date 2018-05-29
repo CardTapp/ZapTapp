@@ -1,0 +1,33 @@
+Catch Stripe source added/updated webhook 
+https://zapier.com/app/editor/25764187/overview
+
+    Trigger - Webhook 
+        Select Webhooks by Zapier Trigger - Catch Hook 
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/r96epo/
+        Set up Webhook by Zapier Hook
+            [Pick off a Child Key = Blank]
+
+    Action - Delay
+        Select Delay by Zapier Action - Delay For   
+        Set up Delay by Zapier Time
+            [Time Delayed For (value) = 10]
+            [Time Delayed For (unit) = Minutes]
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Contact
+            [Field to Search By = Stripe Token]
+            [Search Value = Step 1 Data Object Customer]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Contact 
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Contact  
+            [ID = Use a Custom Value (advanced)]
+            [Custom Value for ID = Step 3 ID]
+            [Payment Card Brand = Use a Custom Value (advanced)]
+            [Custom Value for Payment Card Brand = Step 1 Data Object Brand]
+            [Payment Card Funding Type = Use a Custom Value (advanced)]
+            [Custom Value for Payment Card Funding Type = Step 1 Data Object Funding]
+                 

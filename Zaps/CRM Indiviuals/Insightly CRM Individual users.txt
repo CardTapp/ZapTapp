@@ -1,0 +1,49 @@
+Insightly CRM Individual users
+https://zapier.com/app/editor/36712225/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Insightly indiv users'
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data = 
+                crm_user_api_key | Step 1 Member Meta Data Crm User Api Key 
+                tapper_email | Step 1 Tapper Email Clean
+            ]    
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://api.insight.ly/v2.2/Contacts]  
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                    "FIRST_NAME": " Step 1 Tapper Firstname Descriptive ",
+                    "LAST_NAME": " Step 1 Tapper Lastname Required ",
+                    "BACKGROUND":"Cardtapp referrer: Step 1 Referrer Name Descriptive ",
+                    "CONTACTINFOS": [
+                        {
+                            "TYPE": "PHONE",
+                            "SUBTYPE": null,
+                            "LABEL": "MOBILE",
+                            "DETAIL": " Step 1 Tapper Mobile Phone Formatted "
+                        },
+                                {
+                            "TYPE": "PHONE",
+                            "SUBTYPE": null,
+                            "LABEL": "WORK",
+                            "DETAIL": " Step 1 Tapper Mobile Phone Formatted "
+                        }
+                        Step 2 Email Block
+                    ]
+                }
+            ] 
+            [Unflatten = no]
+            [Headers =
+                Content-Type | application/json
+                Authorization | Step 2 Auth String
+            ]   

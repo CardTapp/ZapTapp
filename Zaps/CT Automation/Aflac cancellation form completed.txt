@@ -1,0 +1,71 @@
+Aflac cancellation form completed
+https://zapier.com/app/editor/26316887/overview
+
+    Trigger - Formstack
+        Select Formstack Trigger - New Submission
+        Select Formstack Account - 'Formstack Account #1'
+        Set up Formstack Submission
+            [Form = Cancel your Aflac mobile app v2]
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Contact    
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Contact 
+            [Field to Search By = Contact ID]
+            [Search Value = Step 1 ID]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Task 
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Zap Meta Human Now]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = Cancellation request form received]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 1 ID]
+
+    Action - Salesforce 
+        Select Salesforce Action - Update Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Contact
+            [ID = Use a Custom Value (advanced)]
+            [Custom Value for ID = Step 1 ID]
+            [Canceled Date = Step 1 Zap Meta Human Now]
+            [Date Requested Cancellation = Step 1 Zap Meta Human Now]
+            [Status = Cancelled]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket 
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Aflac cancellation - Step 2 Name]
+            [Requester Name = Step 2 Name]    
+            [Requester Email = Step 1 Your Email]
+            [First Commnet/Description Format = Plain Text]
+            [First Comment/Description =
+                The following member has cancelled:
+                https://login.salesforce.com/Step 1 ID
+
+                TO DO:
+                -----------------------------
+                1) Add in appropriate paid subscription end date
+
+                2) Reset keyword to generic "word">>  sub-domain+3 numbers
+
+                3) Check to see if member is on an annual subscription that is eligible for refund -
+
+                    3a- If stripe, process refund & note account/ticket
+                    3b- If auto deduct, reply to get mailing address & connect w/accounting to process refund, note the account/ticket
+
+                    Notes for when we are refunding in full (within the first 30 days):
+                    * Be sure to remove the paid subscription start/end date
+                    * Purge app data
+            ]   
+            [Should the first comment be public? = no]  
+            [Tags = no_csat_survey,no_confirm_to_requester]
+            [Resolution = Cancelled]
+            [Vertical = Aflac]
+            [Ticket Source = Automation SF]
+            [Request Type = Cancel Request]        

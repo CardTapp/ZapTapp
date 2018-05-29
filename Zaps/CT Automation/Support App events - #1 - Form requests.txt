@@ -1,0 +1,65 @@
+Support App events - #1 - Form requests
+https://zapier.com/app/editor/22306727/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapp Created
+        Select Cardtapp Internal Account - 'Support App - success.Cardtapp.com'
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing -
+            Only continue if...
+                Tapp Type | (Text) Exactly matches | request
+            OR continue if...
+                Tapp Action | (Text) Contains | Request 
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data =  
+                tapp_type | Step 1 Tapp Type
+                tapp_action_data_string | Step 1 Tapp Action Data String            
+            ]             
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]
+    
+    Action - Slack(Legacy)
+        Select Slack(Legacy) Action - Send Channel Message
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)'
+        Set up Slack(Legacy) Channel Message
+            [Channel = support-app]
+            [Message Text = 
+                Step 1 Tapper Name Descriptive | Step 1 Tapper Mobile Phone Formatted | Step 1 Tapper Email Clean | 
+                <https://na63.salesforce.com/_ui/search/ui/UnifiedSearchResults?sen=003&str=Step 1 Tapper Email Clean |SF contact> | Step 1 Tapp Action
+                Step 3 Action Data Prettyprint
+            ]
+            [Send as a Bot? = yes]
+            [Bot Name = cs-support-app]
+            [Bot Icon Emoji = :csteam:]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Support app - form submitted by Step 1 Tapper Name]
+            [Requester Name = Step 1 Tapper Name]
+            [Requester Email = Step 1 Tapper Email Clean]
+            [First Comment/Description Format = Plain Text]
+            [First Comment/Description =
+                Step 1 Tapper Name Descriptive | Step 1 Tapper Mobile Phone Formatted | Step 1 Tapper Email Clean | 
+
+                SF contact: https://na63.salesforce.com/_ui/search/ui/UnifiedSearchResults?sen=003&str=Step 1 Tapper Email Clean
+
+                Form Name:
+                Step 1 Tapp Action
+
+                Form Data:
+                Step 3 Action Data Prettyprint  
+            ]
+            [Should the first comment be public? = Yes]
+            [Ticket form = CS Team View]
+            [Ticket Source = Support App Form]
+    
+                   

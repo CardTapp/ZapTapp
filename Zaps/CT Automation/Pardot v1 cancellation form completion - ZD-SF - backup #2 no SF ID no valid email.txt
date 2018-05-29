@@ -1,0 +1,65 @@
+Pardot v1 cancellation form completion -> ZD/SF - backup #2 no SF ID no valid email
+https://zapier.com/app/editor/22879489/overview
+
+    Trigger - Gmail
+        Select Gmail Trigger - New Email Matching Search
+        Select Gmail Account - 'Pascal Gmail ppinck@cardtapp.com'
+        Set up Gmail Email Matching Search
+            [Search String = from:info@pardot.com pardot form: v1 confirm cancellation -"App Image URL" ]
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data =
+                emailSubject | Step 1 Subject 
+                emailBody | Step 1 Body Plain
+            ] 
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]    
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Subject = Confirmed cancellation: Step 2 Member Email]
+            [Requester Name = Step 2 Member Firstname Step 2 Member Last Name]
+            [Requester Email = Step 2 Member Email]          
+            [First Comment/Description Format = Plain Text]
+            [First Comment/Description =
+                An individual cancellation has been processed by the Pardot -> SF automation for:
+
+                Name: Step 2 Member Firstname Step 2 Member Last Name
+                Email: Step 2 Member Email
+
+                IMPORTANT:  This member could not be matched to a Salesforce record, probably because the email is different. As a result, no automated actions have been taken in the contact record. 
+
+                What needs to be done:
+                1. Find the correct contact record in SF
+                2. Check requested Cancellation button 
+                3. Set status to Cancelled
+                4. Populate cancellation date
+                5. Enter correct Paid Subscription End Date
+                6. Save SF contact record
+                7. Add a new task in SF that references this ZD ticket#
+                8. Check Stripe record to see if subscriptions have been removed correctly
+                9. Issue any refund if eligible
+                10. Reset EasyText keyword to generic pattern (subdomain + 3 numbers) if premium subscription was included  
+            ]
+            [Should the first comment be public? = No]
+            [Tags = no_auto_confirm_ticket_received, no_csat_survey]
+            [Resolution = Cancelled]
+            [Ticket Source = Pardot Cancel Request Form]
+            [Request Type = Cancel Request]
+
+    Action - Slack(Legacy)
+        Select Slack(Legacy) Action - Send Private Channel Message 
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)
+        Set up Slack(Legacy) Private Channel Message
+            [Channel = pardot-cancel-process]
+            [Message Text = Step 2 Member Email  cancelled. (Unable to match to SF record)]
+            [Send as a Bot? = yes]
+            [Bot Name = cancel-bot]
+            [Bot Icon Emoji = :rain_cloud:]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+            

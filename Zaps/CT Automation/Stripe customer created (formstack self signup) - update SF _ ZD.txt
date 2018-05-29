@@ -1,0 +1,94 @@
+Stripe customer created (formstack self signup) - update SF & ZD
+https://zapier.com/app/editor/24849023/overview
+
+    Trigger - Webhooks by Zapier
+        Select Webhooks by Zapier Trigger - Catch Hook 
+        Connect Webhooks by Zapier - https://hooks.zapier.com/hooks/catch/1177546/50fawc/
+        Set up Webhooks by Zapier Hook
+            [Pick off a child key = Blank]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing - Data Object Sources Data | (Text) Contains | address_zip:00000 
+
+    Action - Delay by Zapier
+        Select Delay by Zapier Action - Delay For 
+        Set up Delay by Zapier Time
+            [Time Delayed For(value) = 1]
+            [Time Delayed For(unit) = Minutes]
+
+    Search - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'  
+        Search for Salesforce Custom Object 
+            [Custom Object Type = Self signup]
+            [Field to Search By = Email]
+            [Search Value = Step 1 Data Object Email]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object 
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object 
+            [Object Type = Self signup]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 4 Object]
+            [Stripe Customer Token = Step 1 Data Object ID]
+
+    Action - Zendesk
+        Select Zendesk Action - Create Ticket 
+        Select Zendesk Account - 'Cardtapp Zendesk' 
+        Set up Zendesk Ticket
+            [Subject = Self-signup via Formstack for Step 4 First Name C Step 4 Last Name C] 
+            [Requester Name = Step 4 First Name C Step 4 Last Name C]
+            [Requester Email = Step 4 Email C]
+            [First Comment/Description Format = Plain text]
+            [First Comment/Description =
+            
+                A self-service signup form has been submitted via Formstack, and the customer's credit card has been charged.
+
+                Customer name: Step 4 First Name C Step 4 Last Name C
+                Customer email: Step 4 Email C
+                Billing state: Step 4 State C
+                Stripe token: Step 1 Data Object ID
+                Plan: Step 4 Subscription Type C
+
+                Campaign:  Step 4 Campaign C
+
+                Todo:
+                ----------
+                Stripe Record:
+                (1) Open stripe record and add the correct state within the description.
+                (2a) If the billing state is Washington, run an additional manual charge for 10% of the base charge amount.
+                (2b) If the billing state is WA, change the subscription plan to include 10% sales tax next year.
+
+                Contact Record:
+                (1) Look up the customer email+cell from SSU form in SF contacts. If a record exists, great! If not, create a new contact record.
+                (2) Refer to campaign creation form to update record appropriately -
+                ie. Branch/DBA, contact owner, lead source, etc.
+                (3) If the subscription type includes premium features, add a subscription add-on child record to the contact record. (Reference campaign creation form to confirm)
+                (4) Attach the self signup record to the Contact record.
+                (5) -- NEW -- If the subscription involves a trial, enter the Stripe trial end date into the Contact Record Paid Subscription Start Date field
+
+                App Creation (if no app pre-provisioned):
+                ((NOTE: If app exists already, skip to #3 here and then final steps below))  
+                (1) Check that product name is accurate given the vertical you are provisioning on.
+                (2) Provision the app with the appropriate template & subdomain. 
+                (Reference campaign creation form for correct vertical, preferred subdomain & template)
+                (3) Apply preferred keyword if applicable.
+
+                Final Steps:
+                (1) Add the stripe token above in App Admin.
+                (2) Confirm paid subscription start date is populated/accurate.
+                (3) Reference campaign creation form for preferred follow up.
+
+                Useful links:
+                ------------------
+                SF self signup record: https://login.salesforce.com/Step 5 ID
+                Stripe customer record: https://dashboard.stripe.com/customers/Step 1 Data Object ID
+                Self-signup campaign creation:  https://docs.google.com/forms/d/1SPYi2xDfcNRLSlD3Tm-WzyKRnw1SpjsJU8Ge9h5VOec/
+            ]  
+            [Should the first comment be public? = No]      
+            [Ticket Form = CS Team View]
+            [Ticket Source = Automation SF]
+            [Request Type = App Build]
+            

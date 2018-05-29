@@ -1,0 +1,63 @@
+Pipedrive CRM LIVE - individual users
+https://zapier.com/app/editor/25463492/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Pipedrive Zapier Indiv Users'
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://api.pipedrive.com/v1/persons/?api_token= Step 1 Member Meta Data Crm Api Key]
+            [Data Pass-Through? = no]
+            [Data = 
+                {	
+                    "owner_id": Step 1 Member Meta Data Crm Owner ID ,
+                    "name":" Step 1 Tapper Name Descriptive ",
+                    "email": [
+                            {
+                                "label": "work",
+                                "value": " Step 1 Tapper Email Clean ",
+                                "primary": true
+                            },
+                            {
+                                "label": "other",
+                                "value": " Step 1 Tapper External ID @cardtapp.com",
+                                "primary": false
+                            }
+                        ],
+                            "phone": [
+                            {
+                                "label": "mobile",
+                                "value": " Step 1 Tapper Mobile Phone Formatted ",
+                                "primary": true
+                            }
+                        ]
+                }
+            ]    
+            [Unflatten = no]
+            [Headers = Content-Type | application/json]
+    
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Member Meta Data Pipedrive Create Deal | (Text) Exactly matches | true
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request  
+            [Method = POST]
+            [URL = https://api.pipedrive.com/v1/deals?api_token= Step 1 Member Meta Data Crm Api Key]
+            [Data Pass-Through? = no]
+            [Data = 
+                {	
+                    "title":"Step 1 Tapper Mobile Phone Formatted Step 1 Tapper Name Descriptive",
+                    "user_id": Step 1 Member Meta Data Crm Owner ID ,
+                    "person_id": Step 2 Data ID
+                }
+            ]    
+            [Unflatten = yes]   
+            [Headers = Content-Type | application/json ] 
+             

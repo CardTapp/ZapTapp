@@ -1,0 +1,31 @@
+Mortgage Quest LIVE individual users
+https://zapier.com/app/editor/24955028/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Mortgage Quest Zapier Indiv Users'
+
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - POST
+        Set up Webhooks by Zapier POST
+            [URL = https://emarketfocus.com/PostProcessor/cardtapp/xml2txt.php]  
+            [Payload Type = Json]
+            [Data = 
+                crm_organization_id | Step 1 Member Meta Data Crm Organization ID 
+                tapper_firstname | Step 1 Tapper Firstname Descriptive
+                tapper_name | Step 1 Tapper Name Descriptive
+                referrer_name | Step 1 Referrer Name Descriptive
+                member_email | Step 1 Member Email 
+                crm_owner_id | Step 1 Member Meta Data Crm Owner ID 
+                tapper_lastname | step 1 Tapper Lastname Descriptive
+                member_first_name | Step 1 Member First Name 
+                member_external_id | Step 1 Member External ID 
+                member_name | Step 1 Member Name 
+                tapper_external_id | Step 1 Tapper External ID 
+                member_last_name | Step 1 Member Last Name 
+                tapper_phone_number | Step 1 Tapper Phone Number 
+                tapper_email | Step 1 Tapper Email Clean
+            ]      
+            [Wrap Request In Array = no]
+            [Unflatten = no]
+            

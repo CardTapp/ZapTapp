@@ -1,0 +1,20 @@
+M&T Bank Tapper Created
+https://zapier.com/app/editor/23228921/overview
+
+    Trigger - CardTapp 
+        Select CardTapp Internal Trigger - Tapper Created
+        Select CardTapp Internal Account - 'M&T Bank Integration'
+
+    Action - Google Sheets
+        Select Google Sheets Action - Create Spreadsheet Row
+        Select Google Sheets Account - 'Pascal google Sheets'
+        Set up Google Sheets Spreadsheet Row
+            [Spreadsheet = MTB events]
+            [Worksheet = Sheet1]
+            [Datetime = Step 1 Zap Meta Human Now]
+            [Member subdomain = Step 1 Member Subdomain]
+            [Tapper name = Step 1 Tapper Name]
+            [Tapper phone = Step 1 Tapper Mobile Phone Formatted]
+            [Is referral? = Step 1 Is referral]
+            [Event type = Tapper Created]
+                

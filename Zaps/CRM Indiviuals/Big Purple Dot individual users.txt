@@ -1,0 +1,39 @@
+Big Purple Dot individual users
+https://zapier.com/app/editor/23257476/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Big Purple Dot indiv Zapier automation'
+
+    Action - Code by Zapier
+        Select Code by Zapier Action - Run Javascript
+        Set up Code by Zapier Run Javascript
+            [Input Data = 
+                referrer_name | Step 1 Referrer Name Descriptive
+                referrer_name_descriptive | Step 1 Referrer Name Descriptive
+                bpd_notes | Step 1 Member Meta Data Bpd Notes 
+                bpd_additional_source_info | Step 1 Member Meta Data Bpd Additional Source Info 
+            ]     
+            [Code = C:\Users\Vladimir Vasic\Desktop\Zapier Source Control\Zapier Code]
+    
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - POST
+        Set up Webhooks by Zapier POST
+            [URL = https://bigpurpledot.com/api/v1/contacts/vendor_create.json]    
+            [Payload Type = Json]
+            [Data =
+                first_name | Step 1 Tapper Firstname Required
+                last_name | Step 1 Tapper Lastname Required
+                api_user | Step 1 Member Meta Data Crm Organization ID 
+                phone | Step 1 Tapper Mobile Phone Formatted
+                api_secret | Step 1 Member Meta Data Crm Api Key
+                notes | Step 2 Bpd Notes
+                priority | Step 1 Member Meta Data Bpd Priority 
+                source | Step 1 Member Meta Data Bpd Source 
+                agent_identifier | Step 1 Member Meta Data Crm Owner ID
+                additional_source_info | Step 2 Bpd Additional Source Info
+                email | Step 1 Tapper Email Clean           
+            ]
+            [Wrap Request In Array = no]
+            [Unflatten = no]
+            

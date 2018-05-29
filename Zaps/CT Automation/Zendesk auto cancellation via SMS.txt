@@ -1,0 +1,125 @@
+Zendesk auto cancellation via SMS
+https://zapier.com/app/editor/22772475/overview
+
+    Trigger - Zendesk
+        Select Zendesk Action - New Ticket    
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [View = Auto-cancellation candidates]
+    
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing -
+            Only continue if...
+                Ticket Tags | (Text) Contains | send_auto_cancel_email
+                Ticket Tags | (Text) Does not contain | auto_cancel_email_sent
+                Requester Email | (Text) Does not contain | cardtapp.com
+                Status | (Text) Exactly matches | New
+                Ticket Tags | (Text) Does not contain | pardot_cancel_request_form
+
+    Action - Slack(Legacy)
+        Select Slack(Legacy) Action - Send Channel Message
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)'
+        Set up Slack(Legacy) Channel Message
+            [Channel = auto-cancellation]
+            [Message Text = Cancellation ticket <Step1 Public URL | Step 1 ID> received in Zendesk from Step 1 Requester Email (SF<https://na63.salesforce.com/_ui/search/ui/UnifiedSearchResults?str= Step 1 Requester Email|lookup>)] 
+            [Send as a Bot? = yes]
+            [Bot Name = cancel-bot]
+            [Bot Icon Emoji = :hot_pepper:]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+
+    Search - Salesforce 
+        Select Salesforce Action - Find a Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Contact
+            [Field to Search By = Email]
+            [Search Value = Step 1 Requester Email]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Stripe Token C | (Text) Starts with | cus_ 
+                Status C | (Text) Does not contain | Cancelled 
+
+    Action - Salesforce
+        Select Salesforce Action - Create Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Custom Type = SMS History]
+            [Contact = Use a Custom Value (advanced)]
+            [Custom Value for Contact ID = Step 4 ID]
+            [Mobile Number = Step 4 Mobile Phone]
+            [SMSText = Hi Step 4 First Name, use the folllowing link to cancel your Cardtapp mobile app subscription: http://bit.ly/2s5ojDa
+
+            You MUST complete this process for your subscription to be cancelled in our system
+            ]                                     
+            [SenderID = 14255980026]
+            [External Field = Step 1 Ticket Organization ID Step 1 Ticket ID]
+
+    Action - Zendesk   
+        Select Zendesk Action - Update Ticket
+        Select Zendesk Account - 'Cardtapp Zendesk'
+        Set up Zendesk Ticket
+            [Ticket = Use a Custom Value (advanced)]
+            [Custom Value for Ticket ID = Step 1 ID]
+            [Assignee = CardTapp Support agent]     
+            [New Status = solved]
+            [New comment to add to the ticket = 
+            Hello from Cardtapp,
+
+            We've identified your most recent support request as possibly being a request for cancellation. To assist you, our system has sent a  text message with a cancellation link to your mobile number  Step 4 Mobile Phone. This is necessary to confirm your account and is the fastest and easiest way to cancel your subscription.
+
+            Simply click on the link in that text message and you can complete the cancellation process in less than a minute.
+
+            If you don't receive the text message within 5 minutes, simply text the word CANCEL to 38470 and the link will be re-sent to your phone.
+
+            Note: You MUST complete the ENTIRE online cancellation process in order for your subscription to be cancelled. 
+
+            If you did not intend to cancel, you may simply ignore this message.
+            ]
+            [Shoud the first comment be public? = Yes]
+            [Tags = auto_cancel_email_sent, no_csat_survey]
+            [Resolution = Texted Resolution]
+            [Vertical = Ct]
+            [Ticket Source = Email To Support]
+            [Request Type = Cancel Request]
+
+    Action - Salesforce
+        Select Salesforce Task - Create Task
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Task
+            [Status = Completed]
+            [Priority = Normal]
+            [Due Date Only = Step 1 Zap Meta Human Now]
+            [Description = Step 1 Public URL]
+            [Subject = Use a Custom Value (advanced)]
+            [Custom Value for Subject = ZD Ticket #Step 1 ID: Auto-cancellation ticket received // cancellation link SMS and email sent]
+            [Related To = Use a Custom Value (advanced)]
+            [Custom Value for Related To ID = Step 6 ID]
+            [Name = Use a Custom Value (advanced)]
+            [Custom Value for Name ID = Step 4 ID]
+
+    Action - Salesforce 
+        Select Salesforce Task - Update Contact
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Contact  
+            [ID = Use a Custom Value (advanced)]
+            [Custom Value for ID = Step 4 ID]
+            [Self Cancel Message Sent = Step 1 Zap Meta Human Now]
+
+    Action - Slack(Legacy)
+        Select Slack Action - Send Channel Message 
+        Select Slack(Legacy) Account - 'ppinck@cardtapp.com's Slack (Legacy)'
+        Set up Slack(Legacy) Channel Message
+            [Channel = auto-cancellation]
+            [Message Text = SMS cancellation link sent to Step 4 Name at Step 4 Mobile Phone using matched email Step 1 Requester Email from Zendesk workflow (SF <https://login.salesforce.com/Step 4 ID |contact>)]
+            [Send as a Bot? = Yes]
+            [Bot Name = cancel-bot]
+            [Bot Icon Emoji = :airplane:]
+            [Broadcast to Channel? = no]
+            [Auto-Expand Links? = yes]
+            [Send @Mention Notifications? = yes]
+                              

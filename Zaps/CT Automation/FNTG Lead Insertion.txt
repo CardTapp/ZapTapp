@@ -1,0 +1,36 @@
+FNTG Lead Insertion
+https://zapier.com/app/editor/19338353/overview
+
+    Trigger - Email Parser by Zapier
+        Select Email Parser by Zapier Trigger - New Email
+        Select Email Parser by Zapier Account - 'Zapier Email Parser Account #1'
+        Set up Email Parser by Zapier Email
+            [Mailbox = m9gzfgee@robot.zapier.com]
+
+    Action - Google Sheets
+        Select Google Sheets Action - Create Spreadsheet Row
+        Select Google Sheets Account - 'Google Sheets Account #1'
+        Set up Google Sheets Spreadsheet Row   
+            [Spreadsheet = Email Parse]
+            [Worksheet = Sheet1]
+            [Phone = Step 1 Parse Output Phone]
+            [Name = Step 1 Parse Output Name]
+            [Referreremail = Step 1 Parse Output Referreremail]
+            [Company = Step 1 Parse Output Company]
+            [Referrername = Step 1 Parse Output Referrername]
+            [Email = Step 1 Parse Output Email]
+
+    Action - Salesforce
+        Select Salesforce Action - Create Lead
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Lead 
+            [Last Name = Step 2 Gsx$name]
+            [Company = Step 2 Gsx$company]
+            [Email = Step 2 Gsx$email]
+            [Lead Source = Fidelity Connect Lead]
+            [Owner = Ryan Leopold]
+            [Phone = Step 2 Gsx$phone]
+            [Summer 16 Referred By Email = Step 2 Gsx$referreremail]
+            [Use Assignment Rules = yes]
+            [Summer 16 Ref By Name = Step 2 Gsx$referrername]
+            

@@ -1,0 +1,24 @@
+M&T Bank Tapp Created
+https://zapier.com/app/editor/23230564/overview
+
+    Trigger - CardTapp
+        Select CardTapp Internal Trigger - Tapp Created
+        Select CardTapp Internal Account - 'M&T Bank Integration'
+
+    Filter
+        Select Filter - Only Continue if...
+        Filter Setup & Testing - Only continue if... 
+            Tapp Action | (Text) is in | Get Rates,Mortgage calculation,Affordability calculation,Refinance calculation,Website,Apply Now,About Me   
+
+    Action - Google Sheets
+        Select Google Sheets Action - Create Spreadsheet Row
+        Select Google Sheets Account - Pascal google Sheets
+        Set up Google Sheets Spreadsheet Row
+            [Spreadsheet = MTB events]
+            [Worksheet = Sheet1]
+            [Datetime = Step 1 Zap Meta Human Now]
+            [Member subdomain = Step 1 Member's Subdomain]
+            [Tapper name = Step 1 Tapper Name]
+            [Tapper phone = Step 1 Tapper Mobile Phone Formatted]
+            [Event Type = Step 1 Tapp Action]
+                    

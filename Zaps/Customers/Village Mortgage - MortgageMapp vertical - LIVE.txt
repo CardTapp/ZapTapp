@@ -1,0 +1,18 @@
+Village Mortgage - MortgageMapp vertical - LIVE
+https://zapier.com/app/editor/27837196/overview
+
+    Trigger - CardTapp
+      Select CardTapp Internal Trigger - Tapper Created
+      Select CardTapp Internal Account - 'Village Mortgage Zapier - MortgageMapp'
+
+    Action - Surefire CRM     
+        Select Surefire CRM Action - Create Contact
+        Select Surefire CRM Account - 'Village Mortgage - Robbin Myers Admin'
+        Set up Surefire CRM Contact
+            [First Name = Step 1 Tapper Firstname Descriptive]
+            [Last Name = Step 1 Tapper Lastname Required]
+            [User Email = Step 1 Member Meta Data CRM Owner ID]
+            [Email = Step 1 Tapper Email Clean]
+            [Mobile Phone = Step 1 Tapper Mobile Phone Formatted]
+            [Source = Cardtapp - Referred by Step 1 Referrer Name]
+            
