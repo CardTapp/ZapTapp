@@ -7,7 +7,7 @@ https://zapier.com/app/editor/25889784/overview
         Set up Webhooks by Zapier Hook
             [Pick off a Child Key = Blank]
 
-    Search or Create - Salesforce
+    Action - Salesforce
         Select Salesforce Action - Find a Custom Object
         Select Salesforce Account - 'SF Cardtapp (production)'
         Search for Salesforce Custom Object
@@ -142,3 +142,50 @@ https://zapier.com/app/editor/25889784/overview
             [Tax_percent = Step 1 Data Object Tax Percent]
             [Total = Step 1 Data Object Total]
             [Webhooks_delivered_at = Step 1 Data Object Webhooks Delivered At]
+
+    Filter - Filter by Zapier
+        Select Filter - Only continue if...   
+        Filter Setup & Testing
+            Only continue if...
+                Type | (Text) Exactly matches | invoice.created 
+                Data Object Subscription | Exists
+                Data Object Customer | Exists
+                Data Object Discount Coupon Amount Off | (Number) Greater than | 0
+                Data Object Discount Coupon Duration | (Text) Exactly matches | once
+                Data Object Paid | (Text) Exactly matches | True
+
+    Action - Delay by Zapier
+        Select Delay by Zapier Action - Delay For 
+        Set up Delay by Zapier Times
+            [Time Delayed For(value) = 1]
+            [Time Delayed For(unit) = Minutes]
+
+    Action - Salesforce
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Search for Salesforce Custom Object
+            [Custom Object Type = Stripe Customer]
+            [Field to Search By = stripe_customer_id]
+            [Search Value = Step 1 Data Object Customer]
+
+    Action - Salesforce 
+        Select Salesforce Action - Find a Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)' 
+        Search for Salesforce Custom Object
+            [Custom Object Type = Stripe Subscription]
+            [Field to Search By = stripe_subscription_id] 
+            [Search Value = Step 1 Data Object Subscription]
+
+    Action - Salesforce
+        Select Salesforce Action - Update Custom Object
+        Select Salesforce Account - 'SF Cardtapp (production)'
+        Set up Salesforce Custom Object
+            [Object Type = Stripe Invoice]
+            [Object = Use a Custom Value (advanced)]
+            [Custom Value for Object ID = Step 2 ID]
+            [Customer Email = Step 6 Email C]
+            [Send Receipt via SF = yes]
+            [Subscription Plan Name = Step 7 Plan Name C]
+            [Description = First year discount of Step 1 Data Object Discount Coupon Amount Off applied]
+            
+
