@@ -1,0 +1,29 @@
+FollowUp Boss CRM Indiv Users
+https://zapier.com/app/editor/38532384/overview
+
+    Trigger - Cardtapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Follow Up Boss Indiv Users'
+    
+    Action - Webhooks by Zapier
+        Select Webhooks by Zapier Action - Custom Request
+        Set up Webhooks by Zapier Custom Request
+            [Method = POST]
+            [URL = https://api.followupboss.com/v1/events]    
+            [Data Pass-Through? = no]
+            [Data = 
+                {
+                "person": {
+                "firstName": "{{38532384__tapper_firstname_descriptive}}",
+                "lastName": "{{38532384__tapper_lastname_descriptive}}",
+                "stage": "Lead",
+                "source": "CardTapp",
+                "assignedUserId": {{38532384__member_meta_data__crm_owner_id}},
+                "phones": [{"value": "{{38532384__tapper_mobile_phone_formatted}}"}],
+                "emails": [{"value": "{{38532384__tapper_email_clean}}"}]
+                        }
+                }
+            ]
+            [Unflatten = no]
+            [Basic Auth = Step 1 Member Meta Data Crm Api Key]
+            [Headers = Content-Type | application/json]

@@ -1,0 +1,22 @@
+LionDesk CRM - Brad Dupen (indiv)
+https://zapier.com/app/editor/38712411/overview
+
+    Trigger - CardTapp
+        Select Cardtapp Internal Trigger - Tapper Created
+        Select Cardtapp Internal Account - 'Liondesk CRM Indiv Users'
+
+    Filter - Filter by zapier
+        Select Filter by Zapier - Only continue if...
+        Filter Setup & Testing
+            Only continue if...
+                Member Subdomain | (Text) Exactly matches | braddupen    
+
+    Action - LionDesk CRM
+        Select LionDesk CRM Action - Create New Contact
+        Select LionDesk CRM Account - 'Brad Dupen Liondesk CRM'
+        Set up LionDesk CRM Contact
+            [First Name = Step 1 Tapper Firstname Descriptive]
+            [Last Name = Step 1 Tapper Lastname Descriptive]
+            [Email = Step 1 Tapper Email Clean]
+            [Phone = Step 1 Tapper Mobile Phone Formatted]
+            
